@@ -232,23 +232,28 @@ img {
 
 .theme-toggle {
     margin-left: 20px;
+    display: flex;
+    align-items: center;
 }
 
 #theme-toggle {
-    background: transparent;
-    border: none;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.25);
     cursor: pointer;
-    padding: 8px;
+    padding: 10px;
     border-radius: 50%;
     color: var(--white);
     transition: var(--transition);
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 44px;
+    height: 44px;
 }
 
 #theme-toggle:hover {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.35);
 }
 
 #theme-toggle svg {
@@ -385,12 +390,16 @@ img {
     font-size: 2.5rem;
     color: var(--white);
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5), 0 4px 20px rgba(0, 0, 0, 0.4);
+    -webkit-text-stroke: 1px rgba(0, 0, 0, 0.35);
+    paint-order: stroke fill;
 }
 
 .stat-label {
     font-size: 0.85rem;
     color: rgba(255, 255, 255, 0.9);
     text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5), 0 2px 12px rgba(0, 0, 0, 0.4);
+    -webkit-text-stroke: 0.6px rgba(0, 0, 0, 0.35);
+    paint-order: stroke fill;
 }
 
 .hero-visual {
@@ -441,10 +450,11 @@ img {
 
 .code-window {
     position: absolute;
-    left: 55%;
+    right: 0;
+    left: auto;
     top: 50%;
     transform: translateY(-50%);
-    width: 340px;
+    width: min(340px, 42vw);
     background: var(--dark);
     border-radius: 12px;
     overflow: hidden;
