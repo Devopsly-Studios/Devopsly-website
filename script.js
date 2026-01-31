@@ -349,5 +349,59 @@ document.querySelectorAll('.service-card').forEach(card => {
     });
 });
 
+// ===== Blogs section: fetch tech / IT news (Dev.to API – free, no key) =====
+(function loadBlogs() {
+    function escapeHtml(str) {
+        if (!str) return '';
+        var div = document.createElement('div');
+        div.textContent = str;
+        return div.innerHTML;
+    }
+    var grid = document.getElementById('blogs-grid');
+    var loading = document.getElementById('blogs-loading');
+    var errorEl = document.getElementById('blogs-error');
+    if (!grid || !loading) return;
+
+    var API_URL = 'https://dev.to/api/articles?per_page=6&tag=webdev';
+
+    fetch(API_URL, { method: 'GET', mode: 'cors' })
+        .then(function(res) { return res.ok ? res.json() : Promise.reject(new Error('Failed to load articles')); })
+        .then(function(articles) {
+            loading.remove();
+            if (!articles || !articles.length) {
+                errorEl.textContent = 'No articles available at the moment.';
+                errorEl.style.display = 'block';
+                return;
+            }
+            articles.forEach(function(article) {
+                var card = document.createElement('article');
+                card.className = 'blog-card';
+                card.setAttribute('itemscope', '');
+                card.setAttribute('itemtype', 'https://schema.org/Article');
+                var img = article.cover_image || 'https://via.placeholder.com/640x360/3366FF/ffffff?text=Dev';
+                var title = escapeHtml(article.title || 'Untitled');
+                var url = article.url ? escapeHtml(article.url) : '#';
+                var desc = escapeHtml(article.description || '');
+                var date = article.published_at ? new Date(article.published_at).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' }) : '';
+                var author = escapeHtml((article.user && article.user.name) ? article.user.name : 'Dev.to');
+                var tags = Array.isArray(article.tag_list) ? article.tag_list.slice(0, 3).map(escapeHtml) : [];
+                card.innerHTML =
+                    '<img class="blog-card__image" src="' + img + '" alt="" loading="lazy" decoding="async">' +
+                    '<div class="blog-card__body">' +
+                    '<h3 class="blog-card__title"><a href="' + url + '" target="_blank" rel="noopener noreferrer">' + title + '</a></h3>' +
+                    '<div class="blog-card__meta">' + author + (date ? ' · ' + date : '') + '</div>' +
+                    (desc ? '<p class="blog-card__excerpt">' + desc + '</p>' : '') +
+                    (tags.length ? '<div class="blog-card__tags">' + tags.map(function(t) { return '<span class="blog-card__tag">' + t + '</span>'; }).join('') + '</div>' : '') +
+                    '</div>';
+                grid.appendChild(card);
+            });
+        })
+        .catch(function() {
+            loading.remove();
+            errorEl.textContent = 'Could not load articles. Please try again later.';
+            errorEl.style.display = 'block';
+        });
+})();
+
 console.log('DevOpsly Studios website loaded successfully! 🚀');
 
