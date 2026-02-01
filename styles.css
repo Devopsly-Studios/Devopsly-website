@@ -10,7 +10,7 @@
     --gray-100: #F7F8FC;
     --gray-200: #E8EBF4;
     --gray-300: #C5CAD9;
-    --gray-400: #8A91A8;
+    --gray-400: #4A5568;
     --gradient-blue: linear-gradient(135deg, #3366FF 0%, #00D4FF 100%);
     --gradient-orange: linear-gradient(135deg, #F5A623 0%, #FF6B35 100%);
     --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
@@ -733,7 +733,7 @@ img {
 }
 
 .service-card p {
-    color: var(--gray-400);
+    color: #4A5568;
     margin-bottom: 20px;
 }
 
@@ -745,7 +745,7 @@ img {
 
 .service-features span {
     background: var(--gray-100);
-    color: var(--gray-400);
+    color: #4A5568;
     padding: 6px 12px;
     border-radius: 20px;
     font-size: 0.8rem;
