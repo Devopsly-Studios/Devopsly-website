@@ -367,55 +367,81 @@ document.querySelectorAll('.service-card').forEach(card => {
         window.history.replaceState(null, null, window.location.pathname);
     }
 
-    // Reliable fallback images (Unsplash)
+    // Expanded Reliable Fallback Images (Unsplash) to prevent repetition
     var FALLBACK_IMAGES = [
         'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=640&q=80', // Coding
         'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=640&q=80', // Code screen
         'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=640&q=80', // Chip
         'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=640&q=80', // Coding 2
         'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=640&q=80', // Server
-        'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=640&q=80'  // Workspace
+        'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=640&q=80', // Workspace
+        'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=640&q=80', // Servers
+        'https://images.unsplash.com/photo-1597852074816-d933ccfd2d90?auto=format&fit=crop&w=640&q=80', // Network
+        'https://images.unsplash.com/photo-1504639725590-34d0984388bd?auto=format&fit=crop&w=640&q=80', // Matrix code
+        'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=640&q=80', // Cyber lock
+        'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=640&q=80', // Globe
+        'https://images.unsplash.com/photo-1531297461136-82af022f5b79?auto=format&fit=crop&w=640&q=80', // Setup
+        'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=640&q=80', // Dashboard
+        'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=640&q=80', // Analytics
+        'https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=640&q=80', // Tech team
+        'https://images.unsplash.com/photo-1535378437327-10f279ad46dd?auto=format&fit=crop&w=640&q=80', // Future
+        'https://images.unsplash.com/photo-1510511459019-5dda7724fd87?auto=format&fit=crop&w=640&q=80', // AI
+        'https://images.unsplash.com/photo-1516110833967-0b5716ca1387?auto=format&fit=crop&w=640&q=80', // AI Face
+        'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=640&q=80'  // Code
     ];
 
     function getRandomImage() {
         return FALLBACK_IMAGES[Math.floor(Math.random() * FALLBACK_IMAGES.length)];
     }
 
-    // Strategy: Try Local 'Backend' JSON -> If fail, Try External API (Dev.to) -> If fail, Use Fallback
-    function fetchLocalBackend() {
-        // This acts as our reliable "Backend"
-        return fetch('./api/blogs.json')
-            .then(function (res) {
-                if (!res.ok) throw new Error('Local backend failed');
-                return res.json();
-            })
-            .then(function (articles) {
-                console.log('Fetched from Local Backend');
-                return articles; // Already in correct format
-            });
-    }
+    // Strategy: LIVE Aggregator (Dev.to)
+    // Fetches from multiple tags to ensure a huge variety of fresh content
+    function fetchLiveBlogs() {
+        var tags = ['devops', 'cloud', 'aws', 'webdev'];
+        var requests = tags.map(function (tag) {
+            return fetch('https://dev.to/api/articles?per_page=10&state=fresh&tag=' + tag, { method: 'GET', mode: 'cors', cache: 'no-store' })
+                .then(function (res) { return res.ok ? res.json() : []; })
+                .catch(function () { return []; });
+        });
 
-    function fetchDevTo() {
-        var API_URL = 'https://dev.to/api/articles?per_page=10&tag=webdev';
-        return fetch(API_URL, { method: 'GET', mode: 'cors' })
-            .then(function (res) {
-                if (!res.ok) throw new Error('Dev.to failed');
-                return res.json();
-            })
-            .then(function (articles) {
-                if (!articles || !articles.length) throw new Error('No Dev.to articles');
-                return articles.map(function (a) {
+        return Promise.all(requests)
+            .then(function (results) {
+                // Flatten results array: [[a,b], [c,d]] -> [a,b,c,d]
+                var allArticles = [].concat.apply([], results);
+
+                if (!allArticles.length) throw new Error('No articles found');
+
+                // Deduplicate by ID
+                var seenIds = new Set();
+                var uniqueArticles = allArticles.filter(function (a) {
+                    if (seenIds.has(a.id)) return false;
+                    seenIds.add(a.id);
+                    return true;
+                });
+
+                console.log('Aggregated ' + uniqueArticles.length + ' live articles.');
+
+                return uniqueArticles.map(function (a) {
+                    // Use cover image if available, else random fallback
+                    var hasValidCover = a.cover_image && a.cover_image.indexOf('placeholder') === -1;
+
                     return {
                         title: a.title,
                         url: a.url,
                         description: a.description || '',
-                        cover_image: a.cover_image || getRandomImage(),
+                        cover_image: hasValidCover ? a.cover_image : getRandomImage(),
                         published_at: a.published_at,
-                        author: (a.user && a.user.name) ? a.user.name : 'Dev.to',
+                        author: (a.user && a.user.name) ? a.user.name : 'Guest Author',
                         tags: a.tag_list ? a.tag_list.slice(0, 3) : []
                     };
                 });
             });
+    }
+
+    // Fallback if Live Fetch completely dies (rare)
+    function fetchLocalBackup() {
+        return fetch('./api/blogs.json')
+            .then(function (res) { return res.json(); });
     }
 
     function renderBlogs(articles) {
@@ -456,77 +482,16 @@ document.querySelectorAll('.service-card').forEach(card => {
     }
 
     // Execute Chain
-    fetchLocalBackend()
+    fetchLiveBlogs()
         .then(function (articles) {
             renderBlogs(articles);
         })
         .catch(function (err) {
-            console.warn('Local Backend failed, trying External API...', err);
-            return fetchDevTo()
+            console.warn('Live API failed, switching to Local Backup...', err);
+            return fetchLocalBackup()
                 .then(function (articles) {
                     renderBlogs(articles);
                 });
-        })
-        .catch(function (err) {
-            console.warn('All APIs failed, using Local Fallback...', err);
-            // Local Fallback
-            var fallbackArticles = [
-                {
-                    title: 'The Future of Web Development: What to Expect in 2025',
-                    url: '#',
-                    description: 'Explore the upcoming trends in web development, from AI-driven coding to WebAssembly and beyond.',
-                    cover_image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=640&q=80',
-                    published_at: new Date().toISOString(),
-                    author: 'DevOpsly Team',
-                    tags: ['webdev', 'future', 'tech']
-                },
-                {
-                    title: 'Mastering CSS Grid and Flexbox',
-                    url: '#',
-                    description: 'A comprehensive guide to building responsive layouts using modern CSS techniques.',
-                    cover_image: 'https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?auto=format&fit=crop&w=640&q=80',
-                    published_at: new Date().toISOString(),
-                    author: 'Frontend Daily',
-                    tags: ['css', 'responsive', 'design']
-                },
-                {
-                    title: 'DevOps Best Practices for Startups',
-                    url: '#',
-                    description: 'Learn how to implement CI/CD pipelines and manage infrastructure efficiently.',
-                    cover_image: 'https://images.unsplash.com/photo-1667372393119-c81c0c60cf32?auto=format&fit=crop&w=640&q=80',
-                    published_at: new Date().toISOString(),
-                    author: 'Cloud Native',
-                    tags: ['devops', 'startup', 'cloud']
-                },
-                {
-                    title: 'Why JavaScript is Still King',
-                    url: '#',
-                    description: 'Despite new languages appearing, JavaScript remains the dominant force in web development.',
-                    cover_image: 'https://images.unsplash.com/photo-1579468118864-1b9ea3c0db4a?auto=format&fit=crop&w=640&q=80',
-                    published_at: new Date().toISOString(),
-                    author: 'JS World',
-                    tags: ['javascript', 'web', 'coding']
-                },
-                {
-                    title: 'Introduction to Docker and Kubernetes',
-                    url: '#',
-                    description: 'Containerization explained simply. Start your journey into microservices today.',
-                    cover_image: 'https://images.unsplash.com/photo-1605745341112-85968b19335b?auto=format&fit=crop&w=640&q=80',
-                    published_at: new Date().toISOString(),
-                    author: 'Docker Fan',
-                    tags: ['docker', 'kubernetes', 'devops']
-                },
-                {
-                    title: 'Building Scalable APIs with Node.js',
-                    url: '#',
-                    description: 'Tips and tricks for creating high-performance backend services using Node.js.',
-                    cover_image: 'https://images.unsplash.com/photo-1627398242454-45a1465c2479?auto=format&fit=crop&w=640&q=80',
-                    published_at: new Date().toISOString(),
-                    author: 'Node Master',
-                    tags: ['nodejs', 'backend', 'api']
-                }
-            ];
-            renderBlogs(fallbackArticles);
         });
 })();
 
