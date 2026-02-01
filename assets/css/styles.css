@@ -446,6 +446,12 @@ img {
     animation-delay: 2s;
 }
 
+.card-4 {
+    top: 30%;
+    left: 35%;
+    animation-delay: 1.5s;
+}
+
 @keyframes float {
 
     0%,
