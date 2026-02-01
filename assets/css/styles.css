@@ -436,13 +436,13 @@ img {
 
 .card-2 {
     top: 0;
-    left: 25%;
+    left: 15%;
     animation-delay: 1s;
 }
 
 .card-3 {
-    top: 45%;
-    left: 10%;
+    top: 60%;
+    left: 0;
     animation-delay: 2s;
 }
 
@@ -460,7 +460,7 @@ img {
 
 .code-window {
     position: absolute;
-    right: 0;
+    right: -80px;
     left: auto;
     top: 50%;
     transform: translateY(-50%);
