@@ -381,9 +381,22 @@ document.querySelectorAll('.service-card').forEach(card => {
         return FALLBACK_IMAGES[Math.floor(Math.random() * FALLBACK_IMAGES.length)];
     }
 
-    // Strategy: Try Dev.to -> If fail, Try HackerNews -> If fail, Use Fallback
+    // Strategy: Try Local 'Backend' JSON -> If fail, Try External API (Dev.to) -> If fail, Use Fallback
+    function fetchLocalBackend() {
+        // This acts as our reliable "Backend"
+        return fetch('./api/blogs.json')
+            .then(function (res) {
+                if (!res.ok) throw new Error('Local backend failed');
+                return res.json();
+            })
+            .then(function (articles) {
+                console.log('Fetched from Local Backend');
+                return articles; // Already in correct format
+            });
+    }
+
     function fetchDevTo() {
-        var API_URL = 'https://dev.to/api/articles?per_page=30&tag=webdev&state=fresh';
+        var API_URL = 'https://dev.to/api/articles?per_page=10&tag=webdev';
         return fetch(API_URL, { method: 'GET', mode: 'cors' })
             .then(function (res) {
                 if (!res.ok) throw new Error('Dev.to failed');
@@ -400,30 +413,6 @@ document.querySelectorAll('.service-card').forEach(card => {
                         published_at: a.published_at,
                         author: (a.user && a.user.name) ? a.user.name : 'Dev.to',
                         tags: a.tag_list ? a.tag_list.slice(0, 3) : []
-                    };
-                });
-            });
-    }
-
-    function fetchHackerNews() {
-        // Fallback to Hacker News Algolia API (very reliable)
-        var HN_URL = 'https://hn.algolia.com/api/v1/search_by_date?query=devops&tags=story&hitsPerPage=20';
-        return fetch(HN_URL)
-            .then(function (res) {
-                if (!res.ok) throw new Error('HN failed');
-                return res.json();
-            })
-            .then(function (data) {
-                if (!data.hits || !data.hits.length) throw new Error('No HN articles');
-                return data.hits.map(function (hit) {
-                    return {
-                        title: hit.title,
-                        url: hit.url || 'https://news.ycombinator.com/item?id=' + hit.objectID,
-                        description: 'Trending on Hacker News',
-                        cover_image: getRandomImage(), // Use high quality random image
-                        published_at: hit.created_at,
-                        author: hit.author,
-                        tags: ['news', 'tech', 'devops']
                     };
                 });
             });
@@ -467,16 +456,14 @@ document.querySelectorAll('.service-card').forEach(card => {
     }
 
     // Execute Chain
-    fetchDevTo()
+    fetchLocalBackend()
         .then(function (articles) {
-            console.log('Loaded from Dev.to');
             renderBlogs(articles);
         })
         .catch(function (err) {
-            console.warn('Dev.to failed, trying Backup (HN)...', err);
-            return fetchHackerNews()
+            console.warn('Local Backend failed, trying External API...', err);
+            return fetchDevTo()
                 .then(function (articles) {
-                    console.log('Loaded from HackerNews');
                     renderBlogs(articles);
                 });
         })

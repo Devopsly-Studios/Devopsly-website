@@ -1,0 +1,102 @@
+[
+  {
+    "id": 1,
+    "title": "The Future of Web Development: What to Expect in 2025",
+    "url": "https://dev.to/devopsly/future-web-dev",
+    "description": "Explore the upcoming trends in web development, from AI-driven coding to WebAssembly and beyond.",
+    "cover_image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=640&q=80",
+    "published_at": "2025-01-15T10:00:00Z",
+    "author": "DevOpsly Team",
+    "tags": ["webdev", "future", "tech"]
+  },
+  {
+    "id": 2,
+    "title": "Mastering CSS Grid and Flexbox",
+    "url": "https://css-tricks.com/snippets/css/a-guide-to-flexbox/",
+    "description": "A comprehensive guide to building responsive layouts using modern CSS techniques. Say goodbye to floats.",
+    "cover_image": "https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?auto=format&fit=crop&w=640&q=80",
+    "published_at": "2025-01-20T14:30:00Z",
+    "author": "Frontend Daily",
+    "tags": ["css", "responsive", "design"]
+  },
+  {
+    "id": 3,
+    "title": "DevOps Best Practices for Startups",
+    "url": "https://aws.amazon.com/devops/what-is-devops/",
+    "description": "Learn how to implement CI/CD pipelines and manage infrastructure efficiently without breaking the bank.",
+    "cover_image": "https://images.unsplash.com/photo-1667372393119-c81c0c60cf32?auto=format&fit=crop&w=640&q=80",
+    "published_at": "2025-01-28T09:15:00Z",
+    "author": "Cloud Native",
+    "tags": ["devops", "startup", "cloud"]
+  },
+  {
+    "id": 4,
+    "title": "Why JavaScript is Still King",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+    "description": "Despite new languages appearing, JavaScript remains the dominant force in web development. Here is why.",
+    "cover_image": "https://images.unsplash.com/photo-1579468118864-1b9ea3c0db4a?auto=format&fit=crop&w=640&q=80",
+    "published_at": "2025-01-10T16:45:00Z",
+    "author": "JS World",
+    "tags": ["javascript", "web", "coding"]
+  },
+  {
+    "id": 5,
+    "title": "Introduction to Docker and Kubernetes",
+    "url": "https://kubernetes.io/docs/tutorials/kubernetes-basics/",
+    "description": "Containerization explained simply. Start your journey into microservices today with this beginner guide.",
+    "cover_image": "https://images.unsplash.com/photo-1605745341112-85968b19335b?auto=format&fit=crop&w=640&q=80",
+    "published_at": "2025-02-01T08:00:00Z",
+    "author": "Docker Fan",
+    "tags": ["docker", "kubernetes", "devops"]
+  },
+  {
+    "id": 6,
+    "title": "Building Scalable APIs with Node.js",
+    "url": "https://nodejs.org/en/docs/guides/anatomy-of-an-http-transaction/",
+    "description": "Tips and tricks for creating high-performance backend services using Node.js and Express.",
+    "cover_image": "https://images.unsplash.com/photo-1627398242454-45a1465c2479?auto=format&fit=crop&w=640&q=80",
+    "published_at": "2025-01-25T11:20:00Z",
+    "author": "Node Master",
+    "tags": ["nodejs", "backend", "api"]
+  },
+  {
+    "id": 7,
+    "title": "The Rise of AI in Software Engineering",
+    "url": "#",
+    "description": "How Large Language Models are changing the way we write, debug, and deploy code.",
+    "cover_image": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=640&q=80",
+    "published_at": "2025-01-30T13:00:00Z",
+    "author": "AI Trends",
+    "tags": ["ai", "coding", "future"]
+  },
+  {
+    "id": 8,
+    "title": "React vs Vue vs Angular: 2025 Edition",
+    "url": "#",
+    "description": "An unbiased comparison of the top 3 frontend frameworks. Which one should you choose for your next project?",
+    "cover_image": "https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=640&q=80",
+    "published_at": "2025-01-05T09:30:00Z",
+    "author": "Frontend Daily",
+    "tags": ["react", "vue", "angular"]
+  },
+  {
+    "id": 9,
+    "title": "Understanding Cybersecurity Basics",
+    "url": "#",
+    "description": "Protect your applications from common vulnerabilities. A must-read for every full-stack developer.",
+    "cover_image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=640&q=80",
+    "published_at": "2025-01-12T15:10:00Z",
+    "author": "SecOps Pro",
+    "tags": ["security", "web", "cyber"]
+  },
+   {
+    "id": 10,
+    "title": "Clean Code Principles",
+    "url": "#",
+    "description": "Writing code that is easy to understand and maintain. Best practices from industry veterans.",
+    "cover_image": "https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&w=640&q=80",
+    "published_at": "2025-01-22T10:45:00Z",
+    "author": "Code Crafters",
+    "tags": ["coding", "bestpractices", "clean"]
+  }
+]
