@@ -430,25 +430,25 @@ img {
 
 .card-1 {
     top: 25%;
-    left: 20%;
+    left: 0;
     animation-delay: 0s;
 }
 
 .card-2 {
-    top: 5%;
-    left: 0;
+    top: 0;
+    left: 15%;
     animation-delay: 1s;
 }
 
 .card-3 {
     top: 75%;
-    left: 10%;
+    left: 0;
     animation-delay: 2s;
 }
 
 .card-4 {
     top: 50%;
-    left: 0;
+    left: 10%;
     animation-delay: 1.5s;
 }
 
