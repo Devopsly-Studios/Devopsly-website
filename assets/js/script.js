@@ -70,7 +70,7 @@ contactForm.addEventListener('submit', function (e) {
     // Add subject for the email service
     data._subject = `New Inquiry: ${data.service} - from ${data.name}`;
 
-    fetch('https://formsubmit.co/ajax/tohidhanfi45@gmail.com', {
+    fetch('https://formsubmit.co/ajax/tohid@devopslystudios.com', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -91,7 +91,7 @@ contactForm.addEventListener('submit', function (e) {
             // Fallback to mailto if AJAX fails
             const emailSubject = `New Inquiry: ${data.service} - from ${data.name}`;
             const emailBody = `Name: ${data.name}\nEmail: ${data.email}\nService: ${data.service}\n\nMessage:\n${data.message}`;
-            window.location.href = `mailto:tohidhanfi45@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+            window.location.href = `mailto:tohid@devopslystudios.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
             showNotification('Background send failed. Opening email client instead.');
         })
         .finally(() => {
