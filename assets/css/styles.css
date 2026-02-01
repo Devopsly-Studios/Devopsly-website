@@ -466,7 +466,7 @@ img {
 
 .code-window {
     position: absolute;
-    right: -80px;
+    right: -120px;
     left: auto;
     top: 50%;
     transform: translateY(-50%);
