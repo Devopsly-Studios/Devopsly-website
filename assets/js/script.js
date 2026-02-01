@@ -59,43 +59,45 @@ const contactForm = document.getElementById('contactForm');
 contactForm.addEventListener('submit', function (e) {
     e.preventDefault();
 
+    const submitBtn = this.querySelector('button[type="submit"]');
+    const originalBtnText = submitBtn.textContent;
+    submitBtn.textContent = 'Sending...';
+    submitBtn.disabled = true;
+
     const formData = new FormData(this);
-    const name = formData.get('name');
-    const email = formData.get('email');
-    const service = formData.get('service');
-    const message = formData.get('message');
+    const data = Object.fromEntries(formData.entries());
 
-    // Create email content
-    const emailSubject = `New Inquiry: ${service} - from ${name}`;
-    const emailBody = `
-Hello DevOpsly Studios,
+    // Add subject for the email service
+    data._subject = `New Inquiry: ${data.service} - from ${data.name}`;
 
-You have received a new inquiry from your website:
-
-Name: ${name}
-Email: ${email}
-Service Required: ${service}
-
-Message:
-${message}
-
----
-This message was sent from the DevOpsly Studios website contact form.
-    `.trim();
-
-    // Encode for mailto link
-    const encodedSubject = encodeURIComponent(emailSubject);
-    const encodedBody = encodeURIComponent(emailBody);
-    const mailtoUrl = `mailto:tohid@devopslystudios.com?subject=${encodedSubject}&body=${encodedBody}`;
-
-    // Open email client
-    window.location.href = mailtoUrl;
-
-    // Reset form
-    this.reset();
-
-    // Show success message
-    showNotification('Opening your email client...');
+    fetch('https://formsubmit.co/ajax/tohid@devopslystudios.com', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+        .then(response => {
+            if (response.ok) {
+                this.reset();
+                showNotification('Message sent successfully! We will contact you soon.');
+            } else {
+                throw new Error('Network response was not ok.');
+            }
+        })
+        .catch(error => {
+            console.error('Form submission error:', error);
+            // Fallback to mailto if AJAX fails
+            const emailSubject = `New Inquiry: ${data.service} - from ${data.name}`;
+            const emailBody = `Name: ${data.name}\nEmail: ${data.email}\nService: ${data.service}\n\nMessage:\n${data.message}`;
+            window.location.href = `mailto:tohid@devopslystudios.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+            showNotification('Background send failed. Opening email client instead.');
+        })
+        .finally(() => {
+            submitBtn.textContent = originalBtnText;
+            submitBtn.disabled = false;
+        });
 });
 
 // ===== Notification System =====
