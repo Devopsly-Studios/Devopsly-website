@@ -367,7 +367,7 @@ document.querySelectorAll('.service-card').forEach(card => {
         window.history.replaceState(null, null, window.location.pathname);
     }
 
-    var API_URL = 'https://dev.to/api/articles?per_page=6&tag=webdev&state=fresh';
+    var API_URL = 'https://dev.to/api/articles?per_page=30&tag=webdev&state=fresh';
 
     fetch(API_URL, { method: 'GET', mode: 'cors', cache: 'no-store' })
         .then(function (res) { return res.ok ? res.json() : Promise.reject(new Error('Failed to load articles')); })
@@ -378,7 +378,11 @@ document.querySelectorAll('.service-card').forEach(card => {
                 errorEl.style.display = 'block';
                 return;
             }
-            articles.forEach(function (article) {
+            // Shuffle array to pick 6 random articles from the latest batch
+            var shuffled = articles.sort(function () { return 0.5 - Math.random(); });
+            var selected = shuffled.slice(0, 6);
+
+            selected.forEach(function (article) {
                 var card = document.createElement('article');
                 card.className = 'blog-card';
                 card.setAttribute('itemscope', '');
