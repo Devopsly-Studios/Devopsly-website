@@ -56,15 +56,15 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // ===== Contact Form Handling =====
 const contactForm = document.getElementById('contactForm');
 
-contactForm.addEventListener('submit', function(e) {
+contactForm.addEventListener('submit', function (e) {
     e.preventDefault();
-    
+
     const formData = new FormData(this);
     const name = formData.get('name');
     const email = formData.get('email');
     const service = formData.get('service');
     const message = formData.get('message');
-    
+
     // Create email content
     const emailSubject = `New Inquiry: ${service} - from ${name}`;
     const emailBody = `
@@ -82,18 +82,18 @@ ${message}
 ---
 This message was sent from the DevOpsly Studios website contact form.
     `.trim();
-    
+
     // Encode for mailto link
     const encodedSubject = encodeURIComponent(emailSubject);
     const encodedBody = encodeURIComponent(emailBody);
     const mailtoUrl = `mailto:tohid@devopslystudios.com?subject=${encodedSubject}&body=${encodedBody}`;
-    
+
     // Open email client
     window.location.href = mailtoUrl;
-    
+
     // Reset form
     this.reset();
-    
+
     // Show success message
     showNotification('Opening your email client...');
 });
@@ -108,7 +108,7 @@ function showNotification(message) {
             <span class="notification-text">${message}</span>
         </div>
     `;
-    
+
     // Add styles dynamically
     notification.style.cssText = `
         position: fixed;
@@ -122,7 +122,7 @@ function showNotification(message) {
         z-index: 10000;
         animation: slideIn 0.3s ease-out;
     `;
-    
+
     // Add animation keyframes
     const style = document.createElement('style');
     style.textContent = `
@@ -148,9 +148,9 @@ function showNotification(message) {
         }
     `;
     document.head.appendChild(style);
-    
+
     document.body.appendChild(notification);
-    
+
     // Remove notification after 4 seconds
     setTimeout(() => {
         notification.style.animation = 'slideOut 0.3s ease-out forwards';
@@ -251,7 +251,7 @@ function typeCommand(command, callback) {
     let i = 0;
     typedCommand.textContent = '';
     terminalOutput.innerHTML = '';
-    
+
     function type() {
         if (i < command.length) {
             typedCommand.textContent += command[i];
@@ -266,7 +266,7 @@ function typeCommand(command, callback) {
 
 function showOutput(outputs, callback) {
     let i = 0;
-    
+
     function showLine() {
         if (i < outputs.length) {
             const line = document.createElement('div');
@@ -285,7 +285,7 @@ function showOutput(outputs, callback) {
 
 function runTerminal() {
     const current = terminalCommands[currentCmdIndex];
-    
+
     typeCommand(current.cmd, () => {
         showOutput(current.output, () => {
             currentCmdIndex = (currentCmdIndex + 1) % terminalCommands.length;
@@ -303,14 +303,14 @@ function animateCounter(element, target) {
     const increment = target / 50;
     const duration = 2000;
     const stepTime = duration / 50;
-    
+
     const timer = setInterval(() => {
         current += increment;
         if (current >= target) {
             current = target;
             clearInterval(timer);
         }
-        
+
         // Format the number
         let displayValue = Math.floor(current);
         if (element.textContent.includes('+')) {
@@ -318,7 +318,7 @@ function animateCounter(element, target) {
         } else if (element.textContent.includes('%')) {
             displayValue += '%';
         }
-        
+
         element.textContent = displayValue;
     }, stepTime);
 }
@@ -340,11 +340,11 @@ statNumbers.forEach(stat => statsObserver.observe(stat));
 
 // ===== Add hover effect to service cards =====
 document.querySelectorAll('.service-card').forEach(card => {
-    card.addEventListener('mouseenter', function() {
+    card.addEventListener('mouseenter', function () {
         this.style.transform = 'translateY(-8px) scale(1.02)';
     });
-    
-    card.addEventListener('mouseleave', function() {
+
+    card.addEventListener('mouseleave', function () {
         this.style.transform = 'translateY(0) scale(1)';
     });
 });
@@ -362,18 +362,23 @@ document.querySelectorAll('.service-card').forEach(card => {
     var errorEl = document.getElementById('blogs-error');
     if (!grid || !loading) return;
 
-    var API_URL = 'https://dev.to/api/articles?per_page=6&tag=webdev';
+    // Clear hash from URL to prevent auto-scroll on reload
+    if (window.location.hash) {
+        window.history.replaceState(null, null, window.location.pathname);
+    }
 
-    fetch(API_URL, { method: 'GET', mode: 'cors' })
-        .then(function(res) { return res.ok ? res.json() : Promise.reject(new Error('Failed to load articles')); })
-        .then(function(articles) {
+    var API_URL = 'https://dev.to/api/articles?per_page=6&tag=webdev&state=fresh';
+
+    fetch(API_URL, { method: 'GET', mode: 'cors', cache: 'no-store' })
+        .then(function (res) { return res.ok ? res.json() : Promise.reject(new Error('Failed to load articles')); })
+        .then(function (articles) {
             loading.remove();
             if (!articles || !articles.length) {
                 errorEl.textContent = 'No articles available at the moment.';
                 errorEl.style.display = 'block';
                 return;
             }
-            articles.forEach(function(article) {
+            articles.forEach(function (article) {
                 var card = document.createElement('article');
                 card.className = 'blog-card';
                 card.setAttribute('itemscope', '');
@@ -391,12 +396,12 @@ document.querySelectorAll('.service-card').forEach(card => {
                     '<h3 class="blog-card__title"><a href="' + url + '" target="_blank" rel="noopener noreferrer">' + title + '</a></h3>' +
                     '<div class="blog-card__meta">' + author + (date ? ' · ' + date : '') + '</div>' +
                     (desc ? '<p class="blog-card__excerpt">' + desc + '</p>' : '') +
-                    (tags.length ? '<div class="blog-card__tags">' + tags.map(function(t) { return '<span class="blog-card__tag">' + t + '</span>'; }).join('') + '</div>' : '') +
+                    (tags.length ? '<div class="blog-card__tags">' + tags.map(function (t) { return '<span class="blog-card__tag">' + t + '</span>'; }).join('') + '</div>' : '') +
                     '</div>';
                 grid.appendChild(card);
             });
         })
-        .catch(function() {
+        .catch(function () {
             loading.remove();
             errorEl.textContent = 'Could not load articles. Please try again later.';
             errorEl.style.display = 'block';
