@@ -479,27 +479,27 @@ document.querySelectorAll('.service-card').forEach(card => {
 // ===== Chatbot Widget =====
 (function initChatbot() {
     var toggle = document.getElementById('chatbot-toggle');
-    var window = document.getElementById('chatbot-window');
+    var chatWindow = document.getElementById('chatbot-window');
     var close = document.getElementById('chatbot-close');
     var messages = document.getElementById('chatbot-messages');
     var input = document.getElementById('chatbot-input');
     var sendBtn = document.getElementById('chatbot-send');
-    
-    if (!toggle || !window || !messages || !input || !sendBtn) return;
-    
+
+    if (!toggle || !chatWindow || !messages || !input || !sendBtn) return;
+
     var isOpen = false;
-    
+
     function openChat() {
-        window.style.display = 'flex';
+        chatWindow.style.display = 'flex';
         isOpen = true;
         input.focus();
     }
-    
+
     function closeChat() {
-        window.style.display = 'none';
+        chatWindow.style.display = 'none';
         isOpen = false;
     }
-    
+
     function addMessage(text, isUser) {
         var msg = document.createElement('div');
         msg.className = 'chatbot-message chatbot-message--' + (isUser ? 'user' : 'bot');
@@ -509,10 +509,10 @@ document.querySelectorAll('.service-card').forEach(card => {
         messages.appendChild(msg);
         messages.scrollTop = messages.scrollHeight;
     }
-    
+
     function getBotResponse(userMessage) {
         var msg = userMessage.toLowerCase().trim();
-        
+
         // Simple keyword-based responses
         if (msg.includes('hello') || msg.includes('hi') || msg.includes('hey')) {
             return 'Hello! 👋 How can we help you today?';
@@ -538,38 +538,38 @@ document.querySelectorAll('.service-card').forEach(card => {
         if (msg.includes('thank') || msg.includes('thanks')) {
             return 'You\'re welcome! Feel free to ask if you have any more questions. 😊';
         }
-        
+
         // Default response
         return 'Thanks for your message! For detailed inquiries, please contact us at +91 9022296145 or email tohid@devopslystudios.com. We\'ll get back to you soon!';
     }
-    
+
     function sendMessage() {
         var text = input.value.trim();
         if (!text) return;
-        
+
         addMessage(text, true);
         input.value = '';
-        
+
         // Simulate bot thinking delay
-        setTimeout(function() {
+        setTimeout(function () {
             var response = getBotResponse(text);
             addMessage(response, false);
         }, 500);
     }
-    
+
     toggle.addEventListener('click', openChat);
     close.addEventListener('click', closeChat);
     sendBtn.addEventListener('click', sendMessage);
-    
-    input.addEventListener('keypress', function(e) {
+
+    input.addEventListener('keypress', function (e) {
         if (e.key === 'Enter') {
             sendMessage();
         }
     });
-    
+
     // Close on outside click (optional)
-    document.addEventListener('click', function(e) {
-        if (isOpen && !window.contains(e.target) && !toggle.contains(e.target)) {
+    document.addEventListener('click', function (e) {
+        if (isOpen && !chatWindow.contains(e.target) && !toggle.contains(e.target)) {
             // Uncomment to auto-close on outside click:
             // closeChat();
         }
