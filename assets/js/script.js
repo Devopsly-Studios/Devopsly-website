@@ -539,6 +539,21 @@ document.querySelectorAll('.service-card').forEach(card => {
             return 'You\'re welcome! Feel free to ask if you have any more questions. 😊';
         }
 
+        // New Prompts
+        if (msg.includes('tech') || msg.includes('stack') || msg.includes('react') || msg.includes('aws')) {
+            return 'We use modern tech stacks including React, Node.js, Python, AWS, Docker, and Kubernetes to build scalable solutions.';
+        }
+        if (msg.includes('portfolio') || msg.includes('project') || msg.includes('work') || msg.includes('example')) {
+            return 'We have delivered 50+ projects! You can ask for our portfolio PDF via email at tohid@devopslystudios.com.';
+        }
+
+        if (msg.includes('founder') || msg.includes('owner') || msg.includes('team')) {
+            return 'DevOpsly Studios is founded and led by Tohid Hanfi, an experienced DevOps Engineer, supported by a team of creative developers.';
+        }
+        if (msg.includes('who are you') || msg.includes('bot') || msg.includes('ai')) {
+            return 'I am the DevOpsly Assistant 🤖! I\'m here to help you navigate our services and answer basic questions.';
+        }
+
         // Default response
         return 'Thanks for your message! For detailed inquiries, please contact us at +91 9022296145 or email tohid@devopslystudios.com. We\'ll get back to you soon!';
     }
