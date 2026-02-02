@@ -272,6 +272,97 @@
         </div>
     </section>
 
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Pricing</span>
+                <h2 class="section-title">Transparent pricing for every stage</h2>
+                <p class="section-desc">Realistic pricing tailored for Tier‑3 city businesses—no hidden costs, clear deliverables.</p>
+            </div>
+
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-badge">Starter</div>
+                    <h3 class="pricing-title">Starter Website</h3>
+                    <p class="pricing-subtitle">Perfect for small businesses and personal brands.</p>
+                    <div class="pricing-price">
+                        <span class="pricing-amount">₹6,999</span>
+                        <span class="pricing-meta">Starting from</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>Single-page or up to 3 pages</li>
+                        <li>Mobile‑responsive design</li>
+                        <li>Basic contact form</li>
+                        <li>WhatsApp / Call‑to‑action buttons</li>
+                    </ul>
+                </div>
+
+                <div class="pricing-card pricing-card--featured">
+                    <div class="pricing-badge">Most Popular</div>
+                    <h3 class="pricing-title">Business Website</h3>
+                    <p class="pricing-subtitle">For growing brands that need more pages and features.</p>
+                    <div class="pricing-price">
+                        <span class="pricing-amount">₹14,999</span>
+                        <span class="pricing-meta">Starting from</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>4–8 pages (Home, Services, About, Blog, Contact, etc.)</li>
+                        <li>Basic admin options / content updates</li>
+                        <li>Lead forms + basic analytics integration</li>
+                        <li>On‑page SEO basics (titles, meta, speed)</li>
+                    </ul>
+                </div>
+
+                <div class="pricing-card">
+                    <div class="pricing-badge">Growth</div>
+                    <h3 class="pricing-title">E‑commerce / Custom</h3>
+                    <p class="pricing-subtitle">For serious online businesses and custom solutions.</p>
+                    <div class="pricing-price">
+                        <span class="pricing-amount">₹29,999</span>
+                        <span class="pricing-meta">Starting from</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>Product catalogue / booking / custom workflows</li>
+                        <li>Payment gateway integration</li>
+                        <li>Dashboard or role‑based access (as needed)</li>
+                        <li>Optimised for performance & security</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pricing-extra-grid">
+                <div class="pricing-extra-card">
+                    <h4>Hosting & Care</h4>
+                    <p class="pricing-extra-price">From ₹1,499 / year</p>
+                    <ul>
+                        <li>Managed hosting + SSL</li>
+                        <li>Backups & basic security</li>
+                        <li>Optional care plan from ₹799 / month</li>
+                    </ul>
+                </div>
+                <div class="pricing-extra-card">
+                    <h4>Branding & Graphics</h4>
+                    <p class="pricing-extra-price">From ₹3,999</p>
+                    <ul>
+                        <li>Logo & brand kit</li>
+                        <li>Social media creatives</li>
+                        <li>Visiting / ID card design</li>
+                    </ul>
+                </div>
+                <div class="pricing-extra-card">
+                    <h4>Cloud & DevOps</h4>
+                    <p class="pricing-extra-price">From ₹9,999</p>
+                    <ul>
+                        <li>AWS / cloud setup</li>
+                        <li>CI/CD pipeline & automation</li>
+                        <li>Monitoring & optimisation</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- About Section -->
     <section id="about" class="about">
         <div class="container">
@@ -478,6 +569,35 @@
     </footer>
 
     <script src="assets/js/script.js"></script>
+    
+    <!-- Custom Chatbot Widget -->
+    <div id="chatbot-widget" class="chatbot-widget">
+        <div id="chatbot-toggle" class="chatbot-toggle" aria-label="Open chat">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+        </div>
+        <div id="chatbot-window" class="chatbot-window" style="display: none;">
+            <div class="chatbot-header">
+                <h4>Chat with us</h4>
+                <button id="chatbot-close" class="chatbot-close" aria-label="Close chat">×</button>
+            </div>
+            <div id="chatbot-messages" class="chatbot-messages">
+                <div class="chatbot-message chatbot-message--bot">
+                    <p>Hello! 👋 How can we help you today?</p>
+                </div>
+            </div>
+            <div class="chatbot-input-area">
+                <input type="text" id="chatbot-input" class="chatbot-input" placeholder="Type your message..." autocomplete="off">
+                <button id="chatbot-send" class="chatbot-send" aria-label="Send message">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="22" y1="2" x2="11" y2="13"></line>
+                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

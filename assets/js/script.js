@@ -56,49 +56,28 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // ===== Contact Form Handling =====
 const contactForm = document.getElementById('contactForm');
 
-contactForm.addEventListener('submit', function (e) {
-    e.preventDefault();
+if (contactForm) {
+    contactForm.addEventListener('submit', function (e) {
+        e.preventDefault();
 
-    const submitBtn = this.querySelector('button[type="submit"]');
-    const originalBtnText = submitBtn.textContent;
-    submitBtn.textContent = 'Sending...';
-    submitBtn.disabled = true;
+        const formData = new FormData(this);
+        const data = Object.fromEntries(formData.entries());
 
-    const formData = new FormData(this);
-    const data = Object.fromEntries(formData.entries());
+        const email = 'tohid@devopslystudios.com';
+        const subject = `New Inquiry: ${data.service || 'General'} - from ${data.name || 'Website Visitor'}`;
+        const body = [
+            `Name: ${data.name || ''}`,
+            `Email: ${data.email || ''}`,
+            `Service: ${data.service || ''}`,
+            '',
+            'Message:',
+            data.message || ''
+        ].join('\n');
 
-    // Add subject for the email service
-    data._subject = `New Inquiry: ${data.service} - from ${data.name}`;
-
-    fetch('https://formsubmit.co/ajax/tohid@devopslystudios.com', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-        },
-        body: JSON.stringify(data)
-    })
-        .then(response => {
-            if (response.ok) {
-                this.reset();
-                showNotification('Message sent successfully! We will contact you soon.');
-            } else {
-                throw new Error('Network response was not ok.');
-            }
-        })
-        .catch(error => {
-            console.error('Form submission error:', error);
-            // Fallback to mailto if AJAX fails
-            const emailSubject = `New Inquiry: ${data.service} - from ${data.name}`;
-            const emailBody = `Name: ${data.name}\nEmail: ${data.email}\nService: ${data.service}\n\nMessage:\n${data.message}`;
-            window.location.href = `mailto:tohid@devopslystudios.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
-            showNotification('Background send failed. Opening email client instead.');
-        })
-        .finally(() => {
-            submitBtn.textContent = originalBtnText;
-            submitBtn.disabled = false;
-        });
-});
+        window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        showNotification('Opening your email client...');
+    });
+}
 
 // ===== Notification System =====
 function showNotification(message) {
@@ -495,6 +474,106 @@ document.querySelectorAll('.service-card').forEach(card => {
                     renderBlogs(articles);
                 });
         });
+})();
+
+// ===== Chatbot Widget =====
+(function initChatbot() {
+    var toggle = document.getElementById('chatbot-toggle');
+    var window = document.getElementById('chatbot-window');
+    var close = document.getElementById('chatbot-close');
+    var messages = document.getElementById('chatbot-messages');
+    var input = document.getElementById('chatbot-input');
+    var sendBtn = document.getElementById('chatbot-send');
+    
+    if (!toggle || !window || !messages || !input || !sendBtn) return;
+    
+    var isOpen = false;
+    
+    function openChat() {
+        window.style.display = 'flex';
+        isOpen = true;
+        input.focus();
+    }
+    
+    function closeChat() {
+        window.style.display = 'none';
+        isOpen = false;
+    }
+    
+    function addMessage(text, isUser) {
+        var msg = document.createElement('div');
+        msg.className = 'chatbot-message chatbot-message--' + (isUser ? 'user' : 'bot');
+        var p = document.createElement('p');
+        p.textContent = text;
+        msg.appendChild(p);
+        messages.appendChild(msg);
+        messages.scrollTop = messages.scrollHeight;
+    }
+    
+    function getBotResponse(userMessage) {
+        var msg = userMessage.toLowerCase().trim();
+        
+        // Simple keyword-based responses
+        if (msg.includes('hello') || msg.includes('hi') || msg.includes('hey')) {
+            return 'Hello! 👋 How can we help you today?';
+        }
+        if (msg.includes('service') || msg.includes('what do you do')) {
+            return 'We offer website design, web development, hosting, cloud solutions, graphic design, and card design. Check out our Services section for details!';
+        }
+        if (msg.includes('price') || msg.includes('cost') || msg.includes('how much')) {
+            return 'Pricing depends on your project requirements. Please contact us at +91 9022296145 or email tohid@devopslystudios.com for a custom quote!';
+        }
+        if (msg.includes('contact') || msg.includes('phone') || msg.includes('email')) {
+            return 'You can reach us at:\n📞 Phone: +91 9022296145\n📧 Email: tohid@devopslystudios.com\n📍 We serve clients across India & globally';
+        }
+        if (msg.includes('time') || msg.includes('when') || msg.includes('duration')) {
+            return 'Project timelines vary based on scope. A simple website typically takes 1-2 weeks, while complex applications may take 4-8 weeks. We\'ll provide a timeline after discussing your requirements!';
+        }
+        if (msg.includes('offline') || msg.includes('remote') || msg.includes('location')) {
+            return 'We work with both offline and remote clients! Whether you prefer face-to-face meetings or online collaboration, we adapt to how you work.';
+        }
+        if (msg.includes('msme') || msg.includes('registered')) {
+            return 'Yes! We are MSME registered. You can see our MSME certificate in the footer.';
+        }
+        if (msg.includes('thank') || msg.includes('thanks')) {
+            return 'You\'re welcome! Feel free to ask if you have any more questions. 😊';
+        }
+        
+        // Default response
+        return 'Thanks for your message! For detailed inquiries, please contact us at +91 9022296145 or email tohid@devopslystudios.com. We\'ll get back to you soon!';
+    }
+    
+    function sendMessage() {
+        var text = input.value.trim();
+        if (!text) return;
+        
+        addMessage(text, true);
+        input.value = '';
+        
+        // Simulate bot thinking delay
+        setTimeout(function() {
+            var response = getBotResponse(text);
+            addMessage(response, false);
+        }, 500);
+    }
+    
+    toggle.addEventListener('click', openChat);
+    close.addEventListener('click', closeChat);
+    sendBtn.addEventListener('click', sendMessage);
+    
+    input.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            sendMessage();
+        }
+    });
+    
+    // Close on outside click (optional)
+    document.addEventListener('click', function(e) {
+        if (isOpen && !window.contains(e.target) && !toggle.contains(e.target)) {
+            // Uncomment to auto-close on outside click:
+            // closeChat();
+        }
+    });
 })();
 
 console.log('DevOpsly Studios website loaded successfully! 🚀');
