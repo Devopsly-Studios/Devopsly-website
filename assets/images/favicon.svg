@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <clipPath id="circleView">
+      <circle cx="50" cy="50" r="50" />
+    </clipPath>
+  </defs>
+  <g clip-path="url(#circleView)">
+    <!-- Left Half: Black -->
+    <rect x="0" y="0" width="50" height="100" fill="black" />
+    <!-- Right Half: White -->
+    <rect x="50" y="0" width="50" height="100" fill="white" />
+    
+    <!-- Text D (White on Black) -->
+    <text x="28" y="68" 
+          font-family="Arial, sans-serif" 
+          font-weight="bold" 
+          font-size="60" 
+          fill="white" 
+          text-anchor="middle">D</text>
+          
+    <!-- Text S (Black on White) -->
+    <text x="72" y="69" 
+          font-family="Arial, sans-serif" 
+          font-weight="bold" 
+          font-size="60" 
+          fill="black" 
+          text-anchor="middle">S</text>
+  </g>
+</svg>
