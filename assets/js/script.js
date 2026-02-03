@@ -53,45 +53,58 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// ===== Contact Form Handling =====
+// ===== Contact Form Handling (Formspree AJAX) =====
 const contactForm = document.getElementById('contactForm');
 
 if (contactForm) {
-    contactForm.addEventListener('submit', function (e) {
+    contactForm.addEventListener('submit', async function (e) {
         e.preventDefault();
 
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+        const originalBtnText = submitBtn.textContent;
+
+        // Show loading state
+        submitBtn.textContent = 'Sending...';
+        submitBtn.disabled = true;
+
         const formData = new FormData(this);
-        const data = Object.fromEntries(formData.entries());
 
-        const email = 'tohid@devopslystudios.com';
-        const subject = `New Inquiry: ${data.service || 'General'} - from ${data.name || 'Website Visitor'}`;
-        const body = [
-            `Name: ${data.name || ''}`,
-            `Email: ${data.email || ''}`,
-            `Service: ${data.service || ''}`,
-            '',
-            'Message:',
-            data.message || ''
-        ].join('\n');
+        try {
+            const response = await fetch(this.action, {
+                method: this.method,
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
 
-        window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-        showNotification('Opening your email client...');
+            if (response.ok) {
+                showNotification('Message sent successfully! We\'ll get back to you soon. 🚀');
+                this.reset();
+            } else {
+                const data = await response.json();
+                if (Object.hasOwn(data, 'errors')) {
+                    showNotification(data["errors"].map(error => error["message"]).join(", "));
+                } else {
+                    showNotification('Oops! There was a problem submitting the form.');
+                }
+            }
+        } catch (error) {
+            showNotification('Error sending message. Please try again later.');
+            console.error('Form error:', error);
+        } finally {
+            // Restore button state
+            submitBtn.textContent = originalBtnText;
+            submitBtn.disabled = false;
+        }
     });
 }
 
 // ===== Notification System =====
-function showNotification(message) {
-    const notification = document.createElement('div');
-    notification.className = 'notification';
-    notification.innerHTML = `
-        <div class="notification-content">
-            <span class="notification-icon">✓</span>
-            <span class="notification-text">${message}</span>
-        </div>
-    `;
-
-    // Add styles dynamically
-    notification.style.cssText = `
+// Create style once
+const notificationStyle = document.createElement('style');
+notificationStyle.textContent = `
+    .notification {
         position: fixed;
         bottom: 30px;
         right: 30px;
@@ -102,33 +115,39 @@ function showNotification(message) {
         box-shadow: 0 8px 24px rgba(51, 102, 255, 0.4);
         z-index: 10000;
         animation: slideIn 0.3s ease-out;
-    `;
+        display: flex;
+        align-items: center;
+        max-width: 300px;
+    }
+    .notification-content {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+    .notification-icon {
+        font-weight: bold;
+        font-size: 1.2rem;
+    }
+    @keyframes slideIn {
+        from { transform: translateX(100%); opacity: 0; }
+        to { transform: translateX(0); opacity: 1; }
+    }
+    @keyframes slideOut {
+        from { transform: translateX(0); opacity: 1; }
+        to { transform: translateX(100%); opacity: 0; }
+    }
+`;
+document.head.appendChild(notificationStyle);
 
-    // Add animation keyframes
-    const style = document.createElement('style');
-    style.textContent = `
-        @keyframes slideIn {
-            from {
-                transform: translateX(100%);
-                opacity: 0;
-            }
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
-        @keyframes slideOut {
-            from {
-                transform: translateX(0);
-                opacity: 1;
-            }
-            to {
-                transform: translateX(100%);
-                opacity: 0;
-            }
-        }
+function showNotification(message) {
+    const notification = document.createElement('div');
+    notification.className = 'notification';
+    notification.innerHTML = `
+        <div class="notification-content">
+            <span class="notification-icon">✓</span>
+            <span class="notification-text">${message}</span>
+        </div>
     `;
-    document.head.appendChild(style);
 
     document.body.appendChild(notification);
 
