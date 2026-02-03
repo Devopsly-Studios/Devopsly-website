@@ -520,9 +520,7 @@ document.querySelectorAll('.service-card').forEach(card => {
         if (msg.includes('service') || msg.includes('what do you do')) {
             return 'We offer website design, web development, hosting, cloud solutions, graphic design, and card design. Check out our Services section for details!';
         }
-        if (msg.includes('price') || msg.includes('cost') || msg.includes('how much')) {
-            return 'Pricing depends on your project requirements. Please contact us at +91 9022296145 or email tohid@devopslystudios.com for a custom quote!';
-        }
+
         if (msg.includes('contact') || msg.includes('phone') || msg.includes('email')) {
             return 'You can reach us at:\n📞 Phone: +91 9022296145\n📧 Email: tohid@devopslystudios.com\n📍 We serve clients across India & globally';
         }
@@ -552,6 +550,24 @@ document.querySelectorAll('.service-card').forEach(card => {
         }
         if (msg.includes('who are you') || msg.includes('bot') || msg.includes('ai')) {
             return 'I am the DevOpsly Assistant 🤖! I\'m here to help you navigate our services and answer basic questions.';
+        }
+
+        // Pricing Specifics
+        if (msg.includes('website price') || msg.includes('web design cost') || msg.includes('starter plan')) {
+            return 'Our "Starter Website" plan starts at ₹6,999 (1-3 pages). The "Business Website" plan is ₹14,999 (4-8 pages), and Custom/E-commerce solutions start at ₹29,999.';
+        }
+        if (msg.includes('hosting price') || msg.includes('hosting cost') || msg.includes('server cost')) {
+            return 'Our Managed Hosting & Care plans start from ₹1,499/year, including SSL, backups, and security.';
+        }
+        if (msg.includes('cloud price') || msg.includes('aws cost') || msg.includes('devops cost')) {
+            return 'Cloud & DevOps automation services start from ₹9,999. Final pricing depends on infrastructure size and complexity.';
+        }
+        if (msg.includes('logo price') || msg.includes('graphic cost') || msg.includes('design cost')) {
+            return 'Branding & Graphic Design services start from ₹3,999, including logos, social media creatives, and business cards.';
+        }
+        // General pricing fallback
+        if (msg.includes('price') || msg.includes('cost') || msg.includes('how much') || msg.includes('charges')) {
+            return 'Our plans start at:\n• Websites: ₹6,999\n• Hosting: ₹1,499/yr\n• Graphics: ₹3,999\n• Cloud/DevOps: ₹9,999\n\nAsk about a specific service for more info!';
         }
 
         // Default response
