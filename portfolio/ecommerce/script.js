@@ -1,113 +1,192 @@
+// Initialize Lenis Scroll
+const lenis = new Lenis({
+    duration: 1.2,
+    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    smooth: true,
+});
+
+function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+}
+requestAnimationFrame(raf);
+
+// Register GSAP ScrollTrigger
+gsap.registerPlugin(ScrollTrigger);
+
+// Custom Cursor
 const cursorDot = document.querySelector('[data-cursor-dot]');
 const cursorOutline = document.querySelector('[data-cursor-outline]');
-const hero = document.querySelector('.hero');
-const floatingCard = document.querySelector('.floating-card');
-const heroImg = document.querySelector('.hero-img');
-const addToCartBtns = document.querySelectorAll('.add-btn');
-const cartBadge = document.querySelector('.badge');
 
-let cartCount = 0;
-
-// Custom Cursor Logic
-window.addEventListener('mousemove', function (e) {
+window.addEventListener('mousemove', (e) => {
     const posX = e.clientX;
     const posY = e.clientY;
 
-    // Dot follows immediately
     cursorDot.style.left = `${posX}px`;
     cursorDot.style.top = `${posY}px`;
 
-    // Outline follows with lag (using native animate for performance)
+    // Smooth follow for outline
     cursorOutline.animate({
         left: `${posX}px`,
         top: `${posY}px`
     }, { duration: 500, fill: "forwards" });
 });
 
-// Interactive Elements Hover Effect for Cursor
-document.querySelectorAll('a, button, .product-card').forEach(el => {
-    el.addEventListener('mouseenter', () => {
+// Magnetic Buttons
+const magneticBtns = document.querySelectorAll('.magnetic-btn');
+magneticBtns.forEach(btn => {
+    btn.addEventListener('mousemove', (e) => {
+        const rect = btn.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+
+        gsap.to(btn, {
+            duration: 0.3,
+            x: x * 0.3,
+            y: y * 0.3,
+            ease: "power2.out"
+        });
+
+        // Scale cursor
         cursorOutline.style.transform = 'translate(-50%, -50%) scale(1.5)';
         cursorOutline.style.backgroundColor = 'rgba(0, 242, 234, 0.1)';
         cursorOutline.style.borderColor = 'transparent';
     });
 
-    el.addEventListener('mouseleave', () => {
+    btn.addEventListener('mouseleave', () => {
+        gsap.to(btn, {
+            duration: 0.3,
+            x: 0,
+            y: 0,
+            ease: "power2.out"
+        });
+
         cursorOutline.style.transform = 'translate(-50%, -50%) scale(1)';
         cursorOutline.style.backgroundColor = 'transparent';
         cursorOutline.style.borderColor = 'var(--primary)';
     });
 });
 
-// 3D Parallax Tilt Effect for Hero
+// Hero 3D Tilt
+const hero = document.querySelector('.hero');
+const floatingCard = document.querySelector('.floating-card');
+
 hero.addEventListener('mousemove', (e) => {
     const xAxis = (window.innerWidth / 2 - e.pageX) / 25;
     const yAxis = (window.innerHeight / 2 - e.pageY) / 25;
 
-    // Animate the card container
-    floatingCard.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+    gsap.to(floatingCard, {
+        duration: 0.5,
+        rotationY: xAxis,
+        rotationX: yAxis,
+        ease: "power2.out"
+    });
 });
 
-// Reset tilt on leave
 hero.addEventListener('mouseleave', () => {
-    floatingCard.style.transform = `rotateY(0deg) rotateX(0deg)`;
-    floatingCard.style.transition = 'all 0.5s ease';
-});
-
-hero.addEventListener('mouseenter', () => {
-    floatingCard.style.transition = 'none';
-});
-
-// Cart Logic
-addToCartBtns.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-        // Animation for button
-        const icon = btn.querySelector('i');
-        icon.classList.remove('fa-plus');
-        icon.classList.add('fa-check');
-        btn.style.background = '#00f2ea';
-        btn.style.color = '#000';
-
-        // Update count
-        cartCount++;
-        cartBadge.innerText = cartCount;
-
-        // Reset button after 1.5s
-        setTimeout(() => {
-            icon.classList.add('fa-plus');
-            icon.classList.remove('fa-check');
-            btn.style.background = '';
-            btn.style.color = '';
-        }, 1500);
-
-        // Simple shake animation for cart icon in nav
-        const cartIcon = document.querySelector('.cart-trigger i');
-        cartIcon.style.animation = 'pulse 0.5s ease';
-        setTimeout(() => {
-            cartIcon.style.animation = '';
-        }, 500);
+    gsap.to(floatingCard, {
+        duration: 1,
+        rotationY: 0,
+        rotationX: 0,
+        ease: "elastic.out(1, 0.3)"
     });
 });
 
-// Scroll Reveal Observer
-const observerOptions = {
-    threshold: 0.1
-};
+// Preloader & Intro Timeline
+const tl = gsap.timeline();
 
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-            observer.unobserve(entry.target);
+// Prevent scrolling during preloader
+document.body.style.overflow = 'hidden';
+
+// Preloader Sequence
+tl.to('.loader-bar', {
+    duration: 1.5,
+    x: 0,
+    ease: "power2.inOut"
+})
+    .to('.loader-text span', {
+        duration: 0.8,
+        y: 0,
+        stagger: 0.1,
+        ease: "power4.out"
+    }, "-=0.5")
+    .to('.preloader', {
+        duration: 1,
+        y: '-100%',
+        ease: "power4.inOut",
+        onComplete: () => {
+            document.body.style.overflow = '';
         }
-    });
-}, observerOptions);
+    })
+    // Hero Reveal
+    .from('.navbar', {
+        duration: 1,
+        y: '-100%',
+        opacity: 0,
+        ease: "power4.out"
+    }, "-=0.5")
+    .to('.reveal-text', {
+        duration: 1,
+        y: 0,
+        stagger: 0.1,
+        ease: "power4.out"
+    }, "-=0.5")
+    .to('.hero-visual', {
+        duration: 1.5,
+        opacity: 1,
+        ease: "power2.out"
+    }, "-=1");
 
-// Initial set up for reveal elements
-document.querySelectorAll('.product-card').forEach((el, index) => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(50px)';
-    el.style.transition = `all 0.6s ease ${index * 0.1}s`; // Staggered delay
-    observer.observe(el);
+// Infinite Marquee
+gsap.to('.marquee-content', {
+    xPercent: -50,
+    repeat: -1,
+    duration: 20,
+    ease: "linear"
+});
+
+// Scroll Triggers for Products
+gsap.utils.toArray('.product-card').forEach((card, i) => {
+    gsap.from(card, {
+        scrollTrigger: {
+            trigger: card,
+            start: "top 85%",
+            toggleActions: "play none none reverse"
+        },
+        y: 100,
+        opacity: 0,
+        duration: 1,
+        ease: "power3.out",
+        delay: i * 0.1
+    });
+});
+
+// Cart Interaction
+const addBtns = document.querySelectorAll('.add-with-text');
+const cartBadge = document.querySelector('.badge');
+let count = 0;
+
+addBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        count++;
+        cartBadge.innerText = count;
+
+        // Pulse animation for badge
+        gsap.fromTo(cartBadge,
+            { scale: 1.5 },
+            { scale: 1, duration: 0.3, ease: "elastic.out(1, 0.3)" }
+        );
+
+        // Button Success State
+        const originalText = btn.innerText;
+        btn.innerText = "Added!";
+        btn.style.background = "#00f2ea";
+        btn.style.color = "#000";
+
+        setTimeout(() => {
+            btn.innerText = originalText;
+            btn.style.background = "";
+            btn.style.color = "";
+        }, 1500);
+    });
 });
