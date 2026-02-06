@@ -15,8 +15,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    cursor: none;
-    /* Hide default cursor for custom one */
 }
 
 body {
@@ -25,7 +23,8 @@ body {
     font-family: var(--font-main);
     position: relative;
     overflow-x: hidden;
-    /* Lenis handles flow */
+    cursor: none;
+    /* Move cursor hiding here */
 }
 
 /* Noise Overlay */
@@ -544,6 +543,29 @@ body:hover .cursor-outline {
     letter-spacing: 1px;
 }
 
+.badge-discount {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: #ffeb3b;
+    color: #000;
+    padding: 5px 12px;
+    border-radius: 4px;
+    font-weight: 800;
+    font-size: 0.9rem;
+    z-index: 10;
+    transform: rotate(5deg);
+    box-shadow: 0 5px 15px rgba(255, 235, 59, 0.3);
+}
+
+.old-price {
+    text-decoration: line-through;
+    opacity: 0.5;
+    font-size: 0.9rem;
+    margin-right: 5px;
+    color: var(--text-muted);
+}
+
 .badge-new {
     background: var(--primary);
     color: #000;
@@ -719,6 +741,76 @@ body:hover .cursor-outline {
     right: 0;
     top: 50%;
     transform: translateY(-50%);
+}
+
+
+
+/* Limited Drop Section (New) */
+.limited-drop {
+    padding: 6rem 8%;
+    display: flex;
+    justify-content: center;
+    background: radial-gradient(circle at 50% 50%, rgba(255, 0, 80, 0.1), transparent 60%);
+}
+
+.drop-content {
+    text-align: center;
+    max-width: 800px;
+}
+
+.drop-label {
+    color: var(--secondary);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.drop-title {
+    font-size: 6rem;
+    font-family: var(--font-display);
+    line-height: 0.9;
+    margin-bottom: 2rem;
+}
+
+.drop-desc {
+    color: var(--text-muted);
+    font-size: 1.2rem;
+    margin-bottom: 4rem;
+}
+
+.countdown-grid {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.time-box {
+    width: 120px;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    border-color: rgba(255, 0, 80, 0.3);
+}
+
+.time-box span {
+    font-size: 3rem;
+    font-weight: 800;
+    font-family: var(--font-display);
+    color: #fff;
+    line-height: 1;
+}
+
+.time-box small {
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-top: 5px;
 }
 
 /* Footer (Pre-existing) */
