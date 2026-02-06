@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A premium e-commerce demo by Devopsly Studios">
+    <title>LuxeTech | Modern E-Commerce Demo</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="dark-theme">
+
+    <!-- Custom Cursor -->
+    <div class="cursor-dot" data-cursor-dot></div>
+    <div class="cursor-outline" data-cursor-outline></div>
+
+    <!-- Navigation -->
+    <nav class="navbar glass">
+        <div class="logo">
+            <span class="logo-icon"><i class="fa-solid fa-cube"></i></span>
+            LUXE<span class="highlight">TECH</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#products">Products</a></li>
+            <li><a href="#vision">Vision</a></li>
+            <li><a href="../../../../index.html">Back to Portfolio</a></li>
+        </ul>
+        <div class="nav-actions">
+            <button class="icon-btn search-trigger"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <button class="icon-btn cart-trigger">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span class="badge">0</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <span class="tagline">The Future of Sound</span>
+            <h1 class="hero-title">Sonic <span class="gradient-text">Immersion</span></h1>
+            <p class="hero-desc">Experience audio like never before with the next-generation spatial noise cancellation.
+                Designed for the obsessed.</p>
+            <div class="cta-group">
+                <button class="btn btn-primary">Pre-Order Now <i class="fa-solid fa-arrow-right"></i></button>
+                <button class="btn btn-secondary"><i class="fa-solid fa-play"></i> Watch Trailer</button>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <!-- This simulated 3D object will be animated with CSS/JS -->
+            <div class="floating-card">
+                <div class="card-glow"></div>
+                <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=1000&auto=format&fit=crop"
+                    alt="Headphones" class="hero-img">
+                <div class="card-info glass">
+                    <div class="info-row">
+                        <span>Battery</span>
+                        <strong>48h</strong>
+                    </div>
+                    <div class="info-row">
+                        <span>Latency</span>
+                        <strong>12ms</strong>
+                    </div>
+                </div>
+            </div>
+            <div class="ambient-light"></div>
+        </div>
+    </section>
+
+    <!-- Features Marquee -->
+    <div class="marquee-container">
+        <div class="marquee-content">
+            <span>High Fidelity</span> <i class="fa-solid fa-star"></i>
+            <span>Spatial Audio</span> <i class="fa-solid fa-star"></i>
+            <span>Active Noise Cancel</span> <i class="fa-solid fa-star"></i>
+            <span>Premium Materials</span> <i class="fa-solid fa-star"></i>
+            <span>High Fidelity</span> <i class="fa-solid fa-star"></i>
+            <span>Spatial Audio</span> <i class="fa-solid fa-star"></i>
+        </div>
+    </div>
+
+    <!-- Featured Products -->
+    <section id="products" class="products-section">
+        <h2 class="section-title">Curated <span class="highlight">Collection</span></h2>
+
+        <div class="product-grid">
+            <!-- Product 1 -->
+            <div class="product-card glass">
+                <div class="badge-new">New</div>
+                <div class="p-img-container">
+                    <img src="https://images.unsplash.com/photo-1572569028720-d7d5d86ca471?q=80&w=800&auto=format&fit=crop"
+                        alt="Smart Watch">
+                </div>
+                <div class="p-details">
+                    <h3>Chronos Elite</h3>
+                    <p class="p-cat">Wearables</p>
+                    <div class="p-footer">
+                        <span class="price">$299.00</span>
+                        <button class="add-btn"><i class="fa-solid fa-plus"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product-card glass">
+                <div class="p-img-container">
+                    <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?q=80&w=800&auto=format&fit=crop"
+                        alt="Camera">
+                </div>
+                <div class="p-details">
+                    <h3>Lumina X2</h3>
+                    <p class="p-cat">Photography</p>
+                    <div class="p-footer">
+                        <span class="price">$1,249.00</span>
+                        <button class="add-btn"><i class="fa-solid fa-plus"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product-card glass">
+                <div class="badge-hot">Hot</div>
+                <div class="p-img-container">
+                    <img src="https://images.unsplash.com/photo-1618410320928-25228d811631?q=80&w=800&auto=format&fit=crop"
+                        alt="Speaker">
+                </div>
+                <div class="p-details">
+                    <h3>Aura Sound</h3>
+                    <p class="p-cat">Home Audio</p>
+                    <div class="p-footer">
+                        <span class="price">$199.00</span>
+                        <button class="add-btn"><i class="fa-solid fa-plus"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>LUXE<span class="highlight">TECH</span></h3>
+                <p>Crafted for the future. Designed for you.</p>
+            </div>
+            <div class="footer-social">
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2026 Devopsly Studios. Portfolio Demo.
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
