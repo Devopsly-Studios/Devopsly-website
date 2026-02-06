@@ -813,6 +813,80 @@ body:hover .cursor-outline {
     margin-top: 5px;
 }
 
+
+
+/* Trusted By / Logo Wall */
+.logo-wall {
+    padding: 3rem 0;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.logo-track {
+    white-space: nowrap;
+}
+
+.logo-slide {
+    display: inline-block;
+    animation: marquee 30s linear infinite;
+}
+
+.logo-slide i {
+    font-size: 3rem;
+    margin: 0 4rem;
+    color: var(--text-muted);
+    transition: 0.3s;
+}
+
+.logo-slide i:hover {
+    color: var(--primary);
+    filter: drop-shadow(0 0 10px var(--primary));
+}
+
+/* Testimonials */
+.testimonials-section {
+    padding: 8rem 8%;
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.test-card {
+    padding: 2.5rem;
+    border-radius: 20px;
+}
+
+.test-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.test-header img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--primary);
+}
+
+.stars {
+    color: #ffeb3b;
+    font-size: 0.8rem;
+    margin-top: 5px;
+}
+
+.test-text {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    font-style: italic;
+}
+
 /* Footer (Pre-existing) */
 footer {
     padding: 4rem 8% 2rem;
