@@ -800,6 +800,154 @@ body:hover .cursor-outline {
     justify-content: space-between;
 }
 
+/* Bento Data Viz */
+.stat-big {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: var(--primary);
+    line-height: 1;
+    margin: 1rem 0 0.5rem;
+    font-family: var(--font-display);
+}
+
+.stat-desc {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+/* Audio Visualizer */
+.visualizer {
+    display: flex;
+    gap: 5px;
+    align-items: flex-end;
+    height: 40px;
+    margin-top: auto;
+}
+
+.bar {
+    width: 6px;
+    background: var(--primary);
+    animation: bounce 1s infinite ease-in-out alternate;
+}
+
+.bar:nth-child(2) {
+    animation-delay: 0.1s;
+    height: 60%;
+}
+
+.bar:nth-child(3) {
+    animation-delay: 0.3s;
+    height: 80%;
+}
+
+.bar:nth-child(4) {
+    animation-delay: 0.2s;
+    height: 50%;
+}
+
+.bar:nth-child(5) {
+    animation-delay: 0.4s;
+    height: 90%;
+}
+
+.bar:nth-child(6) {
+    animation-delay: 0.6s;
+    height: 70%;
+}
+
+@keyframes bounce {
+    0% {
+        height: 20%;
+        opacity: 0.5;
+    }
+
+    100% {
+        height: 100%;
+        opacity: 1;
+    }
+}
+
+/* Battery Spec */
+.battery-stat {
+    margin: 1.5rem 0;
+}
+
+.battery-fill {
+    height: 6px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+}
+
+.battery-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 80%;
+    background: #00f2ea;
+    box-shadow: 0 0 10px #00f2ea;
+}
+
+.spec-list {
+    list-style: none;
+    padding: 0;
+}
+
+.spec-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.9rem;
+}
+
+.spec-list li strong {
+    color: #fff;
+}
+
+/* Material Spec */
+.material-spec {
+    margin-top: 1rem;
+    border-left: 2px solid var(--primary);
+    padding-left: 1rem;
+}
+
+.material-spec span {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.material-spec strong {
+    font-size: 1.2rem;
+    display: block;
+}
+
+.weight-stat {
+    margin-top: auto;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+.surround-badge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    margin-top: 1rem;
+    backdrop-filter: blur(5px);
+}
+
 .bento-item:hover {
     border-color: var(--primary);
     transform: translateY(-5px);
