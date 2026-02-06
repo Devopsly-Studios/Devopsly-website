@@ -161,28 +161,55 @@ gsap.utils.toArray('.product-card').forEach((card, i) => {
     });
 });
 
-// Cart Interaction
-const addBtns = document.querySelectorAll('.add-with-text');
+// Cart Interaction Logic
+const cartSidebar = document.querySelector('.cart-sidebar');
+const cartOverlay = document.querySelector('.cart-overlay');
+const closeCartBtn = document.querySelector('.close-cart');
 const cartBadge = document.querySelector('.badge');
-let count = 0;
+const cartItemsContainer = document.querySelector('.cart-items');
+const cartTotalEl = document.querySelector('.cart-total');
+const cartCountEl = document.querySelector('.cart-count');
+const addBtns = document.querySelectorAll('.add-with-text');
 
+let cart = [];
+
+// Open Cart
+document.querySelector('.cart-icon').addEventListener('click', (e) => {
+    e.preventDefault();
+    openCart();
+});
+
+function openCart() {
+    cartSidebar.classList.add('open');
+    cartOverlay.classList.add('active');
+}
+
+// Close Cart
+function closeCart() {
+    cartSidebar.classList.remove('open');
+    cartOverlay.classList.remove('active');
+}
+
+closeCartBtn.addEventListener('click', closeCart);
+cartOverlay.addEventListener('click', closeCart);
+
+// Add to Cart Logic
 addBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-        count++;
-        cartBadge.innerText = count;
+    btn.addEventListener('click', (e) => {
+        const card = btn.closest('.product-card');
+        const id = card.dataset.id;
+        const title = card.dataset.name;
+        const price = parseFloat(card.dataset.price);
+        const img = card.dataset.img;
 
-        // Pulse animation for badge
-        gsap.fromTo(cartBadge,
-            { scale: 1.5 },
-            { scale: 1, duration: 0.3, ease: "elastic.out(1, 0.3)" }
-        );
+        addToCart(id, title, price, img);
+        openCart(); // Auto open cart on add
 
-        // Button Success State
+        // Button Feedback
         const originalText = btn.innerText;
         btn.innerText = "Added!";
         btn.style.background = "#00f2ea";
         btn.style.color = "#000";
-
         setTimeout(() => {
             btn.innerText = originalText;
             btn.style.background = "";
@@ -190,6 +217,42 @@ addBtns.forEach(btn => {
         }, 1500);
     });
 });
+
+function addToCart(id, title, price, img) {
+    const existingItem = cart.find(item => item.id === id);
+    if (existingItem) {
+        existingItem.qty++;
+    } else {
+        cart.push({ id, title, price, img, qty: 1 });
+    }
+    updateCartUI();
+}
+
+function updateCartUI() {
+    // Update Badge & Count
+    const totalQty = cart.reduce((acc, item) => acc + item.qty, 0);
+    cartBadge.innerText = totalQty;
+    cartCountEl.innerText = totalQty;
+
+    // Render Items
+    if (cart.length === 0) {
+        cartItemsContainer.innerHTML = '<div class="empty-cart-msg">Your cart is empty</div>';
+    } else {
+        cartItemsContainer.innerHTML = cart.map(item => `
+            <div class="cart-item">
+                <img src="${item.img}" alt="${item.title}">
+                <div class="cart-item-info">
+                    <h4>${item.title}</h4>
+                    <span>$${item.price} x ${item.qty}</span>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    // Update Total
+    const total = cart.reduce((acc, item) => acc + (item.price * item.qty), 0);
+    cartTotalEl.innerText = '$' + total.toFixed(2);
+}
 
 // Bento Grid Reveal
 gsap.from('.bento-item', {
