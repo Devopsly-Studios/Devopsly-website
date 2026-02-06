@@ -260,6 +260,7 @@ body:hover .cursor-outline {
 
 .gradient-text {
     background: var(--gradient-main);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -553,7 +554,174 @@ body:hover .cursor-outline {
     color: #fff;
 }
 
-/* Footer */
+/* Tech Specs (Bento) */
+.specs-section {
+    padding: 5rem 8%;
+}
+
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 300px);
+    gap: 1.5rem;
+}
+
+.bento-item {
+    padding: 2.5rem;
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+    transition: 0.4s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.bento-item:hover {
+    border-color: var(--primary);
+    transform: translateY(-5px);
+}
+
+.bento-item.large {
+    grid-column: span 2;
+    grid-row: span 2;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.03), rgba(0, 242, 234, 0.05));
+}
+
+.bento-item.wide {
+    grid-column: span 2;
+}
+
+.tech-icon {
+    font-size: 2rem;
+    color: var(--primary);
+    margin-top: 1rem;
+}
+
+.tech-icon.large {
+    font-size: 4rem;
+    opacity: 0.2;
+}
+
+.bento-content h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    font-family: var(--font-display);
+}
+
+.bento-content p {
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+.row-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+/* Visual Story */
+.visual-story {
+    height: 80vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    margin: 5rem 0;
+}
+
+.parallax-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 120%;
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+    filter: brightness(0.4) grayscale(100%);
+    transition: filter 0.5s;
+}
+
+.visual-story:hover .parallax-bg {
+    filter: brightness(0.6) grayscale(0%);
+}
+
+.story-title {
+    font-size: 5rem;
+    line-height: 1;
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+}
+
+.outline-text {
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.8);
+    color: transparent;
+}
+
+/* Newsletter */
+.newsletter-section {
+    padding: 5rem 8%;
+    display: flex;
+    justify-content: center;
+}
+
+.newsletter-container {
+    width: 100%;
+    max-width: 800px;
+    padding: 3rem;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.02), rgba(0, 242, 234, 0.05));
+}
+
+.nl-text h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.nl-text p {
+    color: var(--text-muted);
+}
+
+.nl-form {
+    display: flex;
+    gap: 1rem;
+    flex: 1;
+    position: relative;
+}
+
+.nl-input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 1rem 0;
+    color: #fff;
+    font-size: 1rem;
+    font-family: var(--font-main);
+}
+
+.nl-input:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+.send-btn {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Footer (Pre-existing) */
 footer {
     padding: 4rem 8% 2rem;
     border-top: 1px solid rgba(255, 255, 255, 0.05);

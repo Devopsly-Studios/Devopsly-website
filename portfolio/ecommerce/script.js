@@ -190,3 +190,65 @@ addBtns.forEach(btn => {
         }, 1500);
     });
 });
+
+// Bento Grid Reveal
+gsap.from('.bento-item', {
+    scrollTrigger: {
+        trigger: '.bento-grid',
+        start: "top 80%",
+    },
+    y: 100,
+    opacity: 0,
+    duration: 1,
+    stagger: 0.1,
+    ease: "power3.out"
+});
+
+// Parallax Effect for Visual Story
+gsap.to('.parallax-bg', {
+    scrollTrigger: {
+        trigger: '.visual-story',
+        start: "top bottom",
+        end: "bottom top",
+        scrub: true
+    },
+    yPercent: 30, // Moves the background slower than scroll
+    ease: "none"
+});
+
+// Newsletter Interaction
+const newsletterInput = document.querySelector('.nl-input');
+const sendBtn = document.querySelector('.send-btn');
+
+sendBtn.addEventListener('click', () => {
+    if (newsletterInput.value.length > 0) {
+
+        // Button Animation
+        const icon = sendBtn.querySelector('i');
+
+        gsap.to(sendBtn, {
+            x: 100,
+            opacity: 0,
+            duration: 0.3,
+            onComplete: () => {
+                icon.classList.remove('fa-arrow-right');
+                icon.classList.add('fa-check');
+                sendBtn.style.color = 'var(--primary)';
+
+                gsap.set(sendBtn, { x: -100 });
+                gsap.to(sendBtn, {
+                    x: 0,
+                    opacity: 1,
+                    duration: 0.3
+                });
+            }
+        });
+
+        // Input Animation
+        gsap.to(newsletterInput, {
+            color: 'var(--primary)',
+            duration: 0.3
+        });
+        newsletterInput.value = "Welcome to the future.";
+    }
+});
