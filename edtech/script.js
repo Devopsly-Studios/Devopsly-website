@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, observerOptions);
 
     // Elements to animate
-    const animatedElements = document.querySelectorAll('.hero-content, .hero-image, .course-card, .feature-content, .feature-image, .testimonial-card, .company-card, .hero-stats');
+    const animatedElements = document.querySelectorAll('.hero-content, .hero-image, .course-card, .feature-content, .feature-image, .testimonial-card, .company-card, .category-card, .hero-stats');
 
     animatedElements.forEach((el, index) => {
         el.style.opacity = '0';
