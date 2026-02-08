@@ -579,6 +579,57 @@ img {
     transform: translate(-50%, -50%) scale(1.1);
 }
 
+/* Placed Students */
+.bg-light-alt {
+    background: #f1f5f9;
+}
+
+.placed-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.company-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.company-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.placed-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--primary);
+}
+
+.placed-info h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.2rem;
+    color: var(--dark);
+}
+
+.placed-info p {
+    font-size: 0.9rem;
+    color: var(--gray);
+}
+
+.text-primary {
+    color: var(--primary);
+    font-weight: 700;
+}
+
 /* Testimonials */
 .testimonial-grid {
     display: grid;
