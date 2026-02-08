@@ -38,7 +38,6 @@ h6,
 /* Navbar Upgrade */
 #header-wrap {
     background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
     box-shadow: var(--shadow-sm);
     padding: 15px 0;
 }
@@ -275,7 +274,7 @@ h1.section-title {
 
     to {
         opacity: 1;
-        transform: translateY(0);
+        transform: none;
     }
 }
 
