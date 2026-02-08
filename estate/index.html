@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estately | Premium Real Estate</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <meta name="description"
+        content="Find your dream home with Estately. Luxury properties, apartments, and villas for sale and rent.">
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;600;700&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo">Estately<span class="dot">.</span></a>
+            <ul class="nav-links">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#properties">Properties</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#" class="btn-primary">List Property</a></li>
+            </ul>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="home" class="hero">
+        <div class="hero-bg"></div>
+        <div class="container hero-content">
+            <h1 class="animate-up">Find Your <span class="accent-text">Perfect Sanctuary</span></h1>
+            <p class="animate-up delay-1">Discover a curated selection of luxury homes, apartments, and villas tailored
+                to your lifestyle.</p>
+
+            <!-- Search Bar -->
+            <div class="search-box animate-up delay-2">
+                <form action="#" class="search-form">
+                    <div class="input-group">
+                        <label><i class="fas fa-map-marker-alt"></i> Location</label>
+                        <input type="text" placeholder="City, Neighborhood...">
+                    </div>
+                    <div class="input-group">
+                        <label><i class="fas fa-home"></i> Type</label>
+                        <select>
+                            <option>Any Type</option>
+                            <option>House</option>
+                            <option>Apartment</option>
+                            <option>Villa</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label><i class="fas fa-dollar-sign"></i> Price Range</label>
+                        <select>
+                            <option>Any Price</option>
+                            <option>₹50L - ₹1Cr</option>
+                            <option>₹1Cr - ₹5Cr</option>
+                            <option>₹5Cr+</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn-search"><i class="fas fa-search"></i> Search</button>
+                </form>
+            </div>
+        </div>
+    </header>
+
+    <!-- Featured Properties -->
+    <section id="properties" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="subtitle">Exclusive Offers</span>
+                <h2>Featured Properties</h2>
+            </div>
+
+            <!-- Services Section Inserted Here -->
+            <div class="services-grid mb-5">
+                <div class="service-card">
+                    <div class="icon-box"><i class="fas fa-home"></i></div>
+                    <h3>Buy a Home</h3>
+                    <p>Find your place with an immersive photo experience and the most listings, including things you
+                        won't find anywhere else.</p>
+                </div>
+                <div class="service-card">
+                    <div class="icon-box"><i class="fas fa-hand-holding-usd"></i></div>
+                    <h3>Sell a Home</h3>
+                    <p>No matter what path you take to sell your home, we can help you navigate a successful sale.</p>
+                </div>
+                <div class="service-card">
+                    <div class="icon-box"><i class="fas fa-key"></i></div>
+                    <h3>Rent a Home</h3>
+                    <p>We’re creating a seamless online experience – from shopping on the largest rental network, to
+                        applying, to paying rent.</p>
+                </div>
+            </div>
+
+            <div class="property-grid">
+                <!-- Property Card 1 -->
+                <div class="property-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&q=80&w=800"
+                            alt="Luxury Villa">
+                        <span class="tag">For Sale</span>
+                        <div class="price">₹12.5 Cr</div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Luxury Villa in Lonavala</h3>
+                        <p class="address"><i class="fas fa-map-pin"></i> Lonavala, Maharashtra</p>
+                        <div class="features">
+                            <span><i class="fas fa-bed"></i> 4 Beds</span>
+                            <span><i class="fas fa-bath"></i> 4 Baths</span>
+                            <span><i class="fas fa-ruler-combined"></i> 5,500 sqft</span>
+                        </div>
+                        <a href="#" class="btn-outline">View Details</a>
+                    </div>
+                </div>
+
+                <!-- Property Card 2 -->
+                <div class="property-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=800"
+                            alt="Sea View Penthouse">
+                        <span class="tag rent">For Rent</span>
+                        <div class="price">₹4.5L<span>/mo</span></div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Sea View Penthouse</h3>
+                        <p class="address"><i class="fas fa-map-pin"></i> Worli, Mumbai</p>
+                        <div class="features">
+                            <span><i class="fas fa-bed"></i> 3 Beds</span>
+                            <span><i class="fas fa-bath"></i> 3 Baths</span>
+                            <span><i class="fas fa-ruler-combined"></i> 2,800 sqft</span>
+                        </div>
+                        <a href="#" class="btn-outline">View Details</a>
+                    </div>
+                </div>
+
+                <!-- Property Card 3 -->
+                <div class="property-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&q=80&w=800"
+                            alt="Garden Bungalow">
+                        <span class="tag">For Sale</span>
+                        <div class="price">₹8.2 Cr</div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Garden Bungalow</h3>
+                        <p class="address"><i class="fas fa-map-pin"></i> Whitefield, Bangalore</p>
+                        <div class="features">
+                            <span><i class="fas fa-bed"></i> 5 Beds</span>
+                            <span><i class="fas fa-bath"></i> 5 Baths</span>
+                            <span><i class="fas fa-ruler-combined"></i> 4,200 sqft</span>
+                        </div>
+                        <a href="#" class="btn-outline">View Details</a>
+                    </div>
+                </div>
+
+                <!-- Property Card 4 -->
+                <div class="property-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1599661046289-e31897846e41?auto=format&fit=crop&q=80&w=800"
+                            alt="Heritage Haveli">
+                        <span class="tag">For Sale</span>
+                        <div class="price">₹15 Cr</div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Heritage Haveli</h3>
+                        <p class="address"><i class="fas fa-map-pin"></i> Udaipur, Rajasthan</p>
+                        <div class="features">
+                            <span><i class="fas fa-bed"></i> 10 Beds</span>
+                            <span><i class="fas fa-bath"></i> 8 Baths</span>
+                            <span><i class="fas fa-ruler-combined"></i> 12,000 sqft</span>
+                        </div>
+                        <a href="#" class="btn-outline">View Details</a>
+                    </div>
+                </div>
+
+                <!-- Property Card 5 -->
+                <div class="property-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1512915922686-57c11dde9b6b?auto=format&fit=crop&q=80&w=800"
+                            alt="Modern Apartment">
+                        <span class="tag rent">For Rent</span>
+                        <div class="price">₹1.5L<span>/mo</span></div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Modern Apartment</h3>
+                        <p class="address"><i class="fas fa-map-pin"></i> Cyber City, Gurgaon</p>
+                        <div class="features">
+                            <span><i class="fas fa-bed"></i> 3 Beds</span>
+                            <span><i class="fas fa-bath"></i> 3 Baths</span>
+                            <span><i class="fas fa-ruler-combined"></i> 2,200 sqft</span>
+                        </div>
+                        <a href="#" class="btn-outline">View Details</a>
+                    </div>
+                </div>
+
+                <!-- Property Card 6 -->
+                <div class="property-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&q=80&w=800"
+                            alt="Beach House">
+                        <span class="tag">For Sale</span>
+                        <div class="price">₹6.5 Cr</div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Beachside Villa</h3>
+                        <p class="address"><i class="fas fa-map-pin"></i> North Goa</p>
+                        <div class="features">
+                            <span><i class="fas fa-bed"></i> 4 Beds</span>
+                            <span><i class="fas fa-bath"></i> 4 Baths</span>
+                            <span><i class="fas fa-ruler-combined"></i> 3,500 sqft</span>
+                        </div>
+                        <a href="#" class="btn-outline">View Details</a>
+                    </div>
+                </div>
+
+                <!-- Property Card 7 -->
+                <div class="property-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&q=80&w=800"
+                            alt="Luxury Farmhouse">
+                        <span class="tag">For Sale</span>
+                        <div class="price">₹22 Cr</div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Luxury Farmhouse</h3>
+                        <p class="address"><i class="fas fa-map-pin"></i> Moinabad, Hyderabad</p>
+                        <div class="features">
+                            <span><i class="fas fa-bed"></i> 6 Beds</span>
+                            <span><i class="fas fa-bath"></i> 8 Baths</span>
+                            <span><i class="fas fa-ruler-combined"></i> 2.5 Acres</span>
+                        </div>
+                        <a href="#" class="btn-outline">View Details</a>
+                    </div>
+                </div>
+
+                <!-- Property Card 8 -->
+                <div class="property-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1572120360610-d971b9d7767c?auto=format&fit=crop&q=80&w=800"
+                            alt="Colonial Bungalow">
+                        <span class="tag">For Sale</span>
+                        <div class="price">₹35 Cr</div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Colonial Bungalow</h3>
+                        <p class="address"><i class="fas fa-map-pin"></i> Alipore, Kolkata</p>
+                        <div class="features">
+                            <span><i class="fas fa-bed"></i> 8 Beds</span>
+                            <span><i class="fas fa-bath"></i> 8 Baths</span>
+                            <span><i class="fas fa-ruler-combined"></i> 10,000 sqft</span>
+                        </div>
+                        <a href="#" class="btn-outline">View Details</a>
+                    </div>
+                </div>
+
+                <!-- Property Card 9 -->
+                <div class="property-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1449844908441-8829872d2607?auto=format&fit=crop&q=80&w=800"
+                            alt="Mountain Cottage">
+                        <span class="tag">For Sale</span>
+                        <div class="price">₹4.2 Cr</div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Mountain Cottage</h3>
+                        <p class="address"><i class="fas fa-map-pin"></i> Manali, Himachal Pradesh</p>
+                        <div class="features">
+                            <span><i class="fas fa-bed"></i> 3 Beds</span>
+                            <span><i class="fas fa-bath"></i> 2 Baths</span>
+                            <span><i class="fas fa-ruler-combined"></i> 1,800 sqft</span>
+                        </div>
+                        <a href="#" class="btn-outline">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- Neighborhoods Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="subtitle">Explore</span>
+                <h2>Popular Neighborhoods</h2>
+            </div>
+            <div class="neighborhood-grid">
+                <div class="neighborhood-card">
+                    <img src="https://images.unsplash.com/photo-1596176530529-78163a4f7af2?auto=format&fit=crop&q=80&w=600"
+                        alt="Bangalore">
+                    <div class="neighborhood-content">
+                        <h3>Bangalore</h3>
+                        <p>250+ Properties</p>
+                    </div>
+                </div>
+                <div class="neighborhood-card">
+                    <img src="https://images.unsplash.com/photo-1570168007204-dfb528c6958f?auto=format&fit=crop&q=80&w=600"
+                        alt="Mumbai">
+                    <div class="neighborhood-content">
+                        <h3>Mumbai</h3>
+                        <p>180+ Properties</p>
+                    </div>
+                </div>
+                <div class="neighborhood-card">
+                    <img src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&q=80&w=600"
+                        alt="Goa">
+                    <div class="neighborhood-content">
+                        <h3>Goa</h3>
+                        <p>120+ Properties</p>
+                    </div>
+                </div>
+                <div class="neighborhood-card">
+                    <img src="images/delhi.jpg" alt="Delhi">
+                    <div class="neighborhood-content">
+                        <h3>Delhi NCR</h3>
+                        <p>90+ Properties</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section id="about" class="section bg-light">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=800"
+                        alt="Modern Interior">
+                    <div class="experience-badge">
+                        <span class="number">15+</span>
+                        <span class="text">Years of<br>Excellence</span>
+                    </div>
+                </div>
+                <div class="about-content">
+                    <span class="subtitle">Why Choose Estately</span>
+                    <h2>We Help You Find Your Dream Home</h2>
+                    <p>We provide a complete service for the sale, purchase, or rental of real estate. We have been
+                        operating more than 10 years. Search for properties, market trends, and connect with top agents.
+                    </p>
+
+                    <ul class="features-list">
+                        <li><i class="fas fa-check-circle"></i> <span>Premium Property Listings</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span>Expert Legal Support</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span>Personalized Home Match</span></li>
+                    </ul>
+                    <a href="#" class="btn-primary">Learn More</a>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="section bg-primary text-white">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">2500+</div>
+                    <div class="stat-label">Properties Sold</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">450+</div>
+                    <div class="stat-label">Happy Clients</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">Awards Won</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">98%</div>
+                    <div class="stat-label">Client Satisfaction</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="subtitle">Testimonials</span>
+                <h2>What Our Clients Say</h2>
+            </div>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                    <p>"Estately helped us find our dream home in Juhu. The agents were professional and
+                        attentive to our needs."</p>
+                    <div class="client-info">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=100"
+                            alt="Client">
+                        <div>
+                            <h4>Rahul Sharma</h4>
+                            <span>Home Buyer</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                    <p>"Selling our property in Gurgaon was effortless. They handled everything from staging to closing.
+                        Highly
+                        recommended!"</p>
+                    <div class="client-info">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=100"
+                            alt="Client">
+                        <div>
+                            <h4>Priya Patel</h4>
+                            <span>Property Seller</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                    <p>"The best rental experience I've ever had in Bangalore. Fast response times and a seamless
+                        application
+                        process."</p>
+                    <div class="client-info">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=100"
+                            alt="Client">
+                        <div>
+                            <h4>Amit Verma</h4>
+                            <span>Tenant</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="section newsletter-section">
+        <div class="container">
+            <div class="newsletter-content text-center">
+                <h2>Subscribe to Our Newsletter</h2>
+                <p>Get the latest property listings and market news delivered to your inbox.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Enter your email address">
+                    <button type="submit" class="btn-primary">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <a href="#" class="logo text-white">Estately<span class="dot">.</span></a>
+                    <p>Your trusted partner in finding the perfect place to call home.</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Properties</a></li>
+                        <li><a href="#">Agents</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Indiranagar, Bangalore</li>
+                        <li><i class="fas fa-phone"></i> +91 98765 43210</li>
+                        <li><i class="fas fa-envelope"></i> info@estately.in</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Estately. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
