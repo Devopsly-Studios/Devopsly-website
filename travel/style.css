@@ -17,6 +17,12 @@
     font-family: 'Poppins', sans-serif;
 }
 
+html,
+body {
+    overflow-x: hidden;
+    width: 100%;
+}
+
 h1,
 h2,
 h3,
@@ -846,7 +852,8 @@ footer {
     }
 
     /* Revert to Stacked Layout (Safest for Mobile) */
-    .booking-form {
+    /* Revert to Stacked Layout (Safest for Mobile) */
+    .booking-form.active {
         display: flex;
         flex-direction: column;
         gap: 1.2rem;
@@ -879,27 +886,16 @@ footer {
 
     .container {
         padding: 0 1.2rem;
+        width: 100%;
     }
 }
 
-/* Fix Search Button Color and layout */
+/* Fix Search Button Color */
 .btn-search {
     background: var(--primary);
     color: white;
     width: 100%;
     margin-top: 1rem;
-    /* Default desktop behavior inside grid/flex parent */
-}
-
-@media (max-width: 600px) {
-    .btn-search {
-        flex: 0 0 120px;
-        /* Fixed width in horizontal layout */
-        width: auto;
-        margin-top: 0;
-        margin-bottom: 2px;
-        /* Alignment tweak */
-    }
 }
 
 .btn-search:hover {
