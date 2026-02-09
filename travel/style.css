@@ -65,6 +65,17 @@ body {
     background: var(--primary-dark);
 }
 
+.btn-outline {
+    background: transparent;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+}
+
+.btn-outline:hover {
+    background: var(--primary);
+    color: white;
+}
+
 .btn-text {
     background: transparent;
     color: var(--primary);
@@ -99,12 +110,19 @@ body {
 }
 
 .logo {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     font-weight: 800;
     color: var(--primary);
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+}
+
+.logo i {
+    color: var(--secondary);
+    font-size: 2rem;
 }
 
 .nav-links {
