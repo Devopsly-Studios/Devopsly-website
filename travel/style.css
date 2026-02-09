@@ -845,26 +845,22 @@ footer {
         background: rgba(14, 165, 233, 0.1);
     }
 
-    /* 2-Column Grid for Mobile Form (Better than horizontal scroll) */
+    /* Revert to Stacked Layout (Safest for Mobile) */
     .booking-form {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        /* Two equal columns */
-        gap: 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
         padding-bottom: 0;
         overflow: visible;
     }
 
     .form-group {
-        flex: auto;
-        min-width: 0;
-        /* Allow shrinking */
         width: 100%;
+        min-width: 0;
     }
 
-    /* Make button span full width on mobile */
+    /* Button full width */
     .booking-form .btn-search {
-        grid-column: span 2;
         width: 100%;
         margin-top: 0.5rem;
     }
