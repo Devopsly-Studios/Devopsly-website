@@ -845,9 +845,28 @@ footer {
         background: rgba(14, 165, 233, 0.1);
     }
 
+    /* 2-Column Grid for Mobile Form (Better than horizontal scroll) */
     .booking-form {
-        grid-template-columns: 1fr;
-        gap: 1.2rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        /* Two equal columns */
+        gap: 1rem;
+        padding-bottom: 0;
+        overflow: visible;
+    }
+
+    .form-group {
+        flex: auto;
+        min-width: 0;
+        /* Allow shrinking */
+        width: 100%;
+    }
+
+    /* Make button span full width on mobile */
+    .booking-form .btn-search {
+        grid-column: span 2;
+        width: 100%;
+        margin-top: 0.5rem;
     }
 
     .footer-container {
@@ -867,12 +886,24 @@ footer {
     }
 }
 
-/* Fix Search Button Color */
+/* Fix Search Button Color and layout */
 .btn-search {
     background: var(--primary);
     color: white;
     width: 100%;
     margin-top: 1rem;
+    /* Default desktop behavior inside grid/flex parent */
+}
+
+@media (max-width: 600px) {
+    .btn-search {
+        flex: 0 0 120px;
+        /* Fixed width in horizontal layout */
+        width: auto;
+        margin-top: 0;
+        margin-bottom: 2px;
+        /* Alignment tweak */
+    }
 }
 
 .btn-search:hover {
