@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WanderLust - Travel the World</title>
+    <meta name="description"
+        content="Book flights, hotels, buses, and trains for your next dream vacation. Seamless inter-city and international travel planning.">
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Favicon -->
+    <link rel="icon" href="https://img.icons8.com/color/48/airplane-take-off.png" type="image/png">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <i class="fas fa-globe-americas"></i> WanderLust
+            </a>
+            <div class="nav-links">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#destinations" class="nav-link">Destinations</a>
+                <a href="#transport" class="nav-link">Transport</a>
+                <a href="#packages" class="nav-link">Packages</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <div class="nav-actions">
+                <button class="btn-text">Sign In</button>
+                <button class="btn btn-primary">Sign Up</button>
+            </div>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content container">
+            <h1 class="animate-up">Discover Your Next Adventure</h1>
+            <p class="animate-up delay-1">Explore the world with seamless travel experiences. Flights, hotels, buses,
+                and trains - all in one place.</p>
+
+            <!-- Booking Widget -->
+            <div class="booking-widget animate-up delay-2">
+                <div class="booking-tabs">
+                    <button class="tab-btn active" data-tab="flights"><i class="fas fa-plane"></i> Flights</button>
+                    <button class="tab-btn" data-tab="hotels"><i class="fas fa-hotel"></i> Hotels</button>
+                    <button class="tab-btn" data-tab="trains"><i class="fas fa-train"></i> Trains</button>
+                    <button class="tab-btn" data-tab="buses"><i class="fas fa-bus"></i> Buses</button>
+                    <button class="tab-btn" data-tab="cabs"><i class="fas fa-car"></i> Cabs</button>
+                </div>
+
+                <div class="booking-form active" id="flights-form">
+                    <div class="form-group">
+                        <label><i class="fas fa-map-marker-alt"></i> From</label>
+                        <input type="text" placeholder="City or Airport">
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-map-marker-alt"></i> To</label>
+                        <input type="text" placeholder="City or Airport">
+                    </div>
+                    <div class="form-group">
+                        <label><i class="far fa-calendar-alt"></i> Departure</label>
+                        <input type="date">
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-user"></i> Travelers</label>
+                        <select>
+                            <option>1 Traveler</option>
+                            <option>2 Travelers</option>
+                            <option>3+ Travelers</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-search"><i class="fas fa-search"></i> Search</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Transport Services -->
+    <section id="transport" class="section services-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="subtitle">Seamless Travel</span>
+                <h2>Inter & Intra City Transport</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="icon-box icon-flight">
+                        <i class="fas fa-plane-departure"></i>
+                    </div>
+                    <h3>International Flights</h3>
+                    <p>Connecting you to over 150 countries with premium airline partners.</p>
+                </div>
+                <div class="service-card">
+                    <div class="icon-box icon-train">
+                        <i class="fas fa-subway"></i>
+                    </div>
+                    <h3>Express Trains</h3>
+                    <p>Fast and scenic rail routes across the country. Reliable and eco-friendly.</p>
+                </div>
+                <div class="service-card">
+                    <div class="icon-box icon-bus">
+                        <i class="fas fa-bus-alt"></i>
+                    </div>
+                    <h3>Luxury Buses</h3>
+                    <p>Comfortable sleeper buses for convenient inter-city travel.</p>
+                </div>
+                <div class="service-card">
+                    <div class="icon-box icon-car">
+                        <i class="fas fa-taxi"></i>
+                    </div>
+                    <h3>City Cabs & Rentals</h3>
+                    <p>Instant cab booking and self-drive rentals for local exploration.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Destinations -->
+    <section id="destinations" class="section bg-light">
+        <div class="container">
+            <div class="section-header">
+                <span class="subtitle">Popular Destinations</span>
+                <h2>Explore the World</h2>
+                <div class="tabs-filter">
+                    <button class="filter-btn active">All</button>
+                    <button class="filter-btn">International</button>
+                    <button class="filter-btn">National</button>
+                </div>
+            </div>
+
+            <div class="destination-grid">
+                <!-- Card 1 -->
+                <div class="destination-card">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1499678329028-101435549a4e?auto=format&fit=crop&q=80&w=600"
+                            alt="Italy">
+                        <span class="price-tag">From $899</span>
+                    </div>
+                    <div class="card-content">
+                        <div class="location">
+                            <i class="fas fa-map-marker-alt"></i> Tuscany, Italy
+                        </div>
+                        <h3>Italian Vineyard Escape</h3>
+                        <div class="meta">
+                            <span><i class="far fa-clock"></i> 7 Days</span>
+                            <span><i class="fas fa-star"></i> 4.9</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="destination-card">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&q=80&w=600"
+                            alt="Taj Mahal">
+                        <span class="price-tag">From $299</span>
+                    </div>
+                    <div class="card-content">
+                        <div class="location">
+                            <i class="fas fa-map-marker-alt"></i> Agra, India
+                        </div>
+                        <h3>Golden Triangle Cultural Tour</h3>
+                        <div class="meta">
+                            <span><i class="far fa-clock"></i> 5 Days</span>
+                            <span><i class="fas fa-star"></i> 4.8</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="destination-card">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&q=80&w=600"
+                            alt="Bali">
+                        <span class="price-tag">From $599</span>
+                    </div>
+                    <div class="card-content">
+                        <div class="location">
+                            <i class="fas fa-map-marker-alt"></i> Bali, Indonesia
+                        </div>
+                        <h3>Tropical Paradise Retreat</h3>
+                        <div class="meta">
+                            <span><i class="far fa-clock"></i> 6 Days</span>
+                            <span><i class="fas fa-star"></i> 4.7</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="destination-card">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&q=80&w=600"
+                            alt="Maldives">
+                        <span class="price-tag">From $1200</span>
+                    </div>
+                    <div class="card-content">
+                        <div class="location">
+                            <i class="fas fa-map-marker-alt"></i> Maldives
+                        </div>
+                        <h3>Overwater Villa Luxury</h3>
+                        <div class="meta">
+                            <span><i class="far fa-clock"></i> 5 Days</span>
+                            <span><i class="fas fa-star"></i> 5.0</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 5 -->
+                <div class="destination-card">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1518684079-3c830dcef6c0?auto=format&fit=crop&q=80&w=600"
+                            alt="Dubai">
+                        <span class="price-tag">From $750</span>
+                    </div>
+                    <div class="card-content">
+                        <div class="location">
+                            <i class="fas fa-map-marker-alt"></i> Dubai, UAE
+                        </div>
+                        <h3>Desert Safari & Skyscrappers</h3>
+                        <div class="meta">
+                            <span><i class="far fa-clock"></i> 4 Days</span>
+                            <span><i class="fas fa-star"></i> 4.8</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 6 -->
+                <div class="destination-card">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1596392927827-b952c1a065aa?auto=format&fit=crop&q=80&w=600"
+                            alt="Kerala">
+                        <span class="price-tag">From $350</span>
+                    </div>
+                    <div class="card-content">
+                        <div class="location">
+                            <i class="fas fa-map-marker-alt"></i> Kerala, India
+                        </div>
+                        <h3>Backwaters & Houseboat Stay</h3>
+                        <div class="meta">
+                            <span><i class="far fa-clock"></i> 5 Days</span>
+                            <span><i class="fas fa-star"></i> 4.9</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="section">
+        <div class="container feature-wrapper">
+            <div class="feature-img">
+                <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&q=80&w=800"
+                    alt="Traveler">
+                <div class="floating-badge badge-1">
+                    <i class="fas fa-user-shield"></i> Safe Travel
+                </div>
+                <div class="floating-badge badge-2">
+                    <i class="fas fa-headset"></i> 24/7 Support
+                </div>
+            </div>
+            <div class="feature-text">
+                <span class="subtitle">Why Choose Us</span>
+                <h2>Plan Your Trip <br>With Confidence</h2>
+                <p>We provide a comprehensive travel platform that handles everything from the moment you leave your
+                    door until you return home safely.</p>
+
+                <ul class="feature-list">
+                    <li>
+                        <div class="check"><i class="fas fa-check"></i></div>
+                        <div>
+                            <h4>Best Price Guarantee</h4>
+                            <p>We match any price found on competitor sites.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="check"><i class="fas fa-check"></i></div>
+                        <div>
+                            <h4>Easy Booking</h4>
+                            <p>Seamless booking for flights, hotels, and transport.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="check"><i class="fas fa-check"></i></div>
+                        <div>
+                            <h4>Diverse Destinations</h4>
+                            <p>National and international packages tailored for you.</p>
+                        </div>
+                    </li>
+                </ul>
+                <button class="btn btn-primary">Learn More</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews -->
+    <section class="section bg-light">
+        <div class="container">
+            <div class="section-header">
+                <span class="subtitle">Testimonials</span>
+                <h2>Travelers Love WanderLust</h2>
+            </div>
+            <div class="review-grid">
+                <div class="review-card">
+                    <div class="user-row">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=100"
+                            alt="User">
+                        <div>
+                            <h4>Alice Freeman</h4>
+                            <div class="stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p>"Booking my trip to Bali was effortless. The flight and hotel combo saved me so much money!"</p>
+                </div>
+                <div class="review-card">
+                    <div class="user-row">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=100"
+                            alt="User">
+                        <div>
+                            <h4>John Smith</h4>
+                            <div class="stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p>"Excellent service for booking inter-city trains. The UI is so clean and easy to use."</p>
+                </div>
+                <div class="review-card">
+                    <div class="user-row">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=100"
+                            alt="User">
+                        <div>
+                            <h4>Maria Garcia</h4>
+                            <div class="stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p>"Our family vacation to Dubai was perfect. The package included everything we needed."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-col">
+                <a href="#" class="logo footer-logo">
+                    <i class="fas fa-globe-americas"></i> WanderLust
+                </a>
+                <p>Your one-stop destination for all travel needs. From flights to stays, we've got you covered.</p>
+                <div class="socials">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <a href="#">About Us</a>
+                <a href="#">Careers</a>
+                <a href="#">Blog</a>
+            </div>
+            <div class="footer-col">
+                <h4>Support</h4>
+                <a href="#">Contact Us</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+            <div class="footer-col">
+                <h4>Newsletter</h4>
+                <p>Subscribe for travel deals.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Email Address">
+                    <button><i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 WanderLust Inc. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
