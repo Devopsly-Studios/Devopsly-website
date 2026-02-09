@@ -780,7 +780,8 @@ footer {
         grid-template-columns: 1fr;
     }
 
-    .review-grid {
+    .review-grid,
+    .stats-grid {
         grid-template-columns: 1fr;
     }
 
@@ -803,11 +804,40 @@ footer {
 }
 
 @media (max-width: 600px) {
+    .booking-widget {
+        padding: 1.5rem;
+    }
+
+    .booking-tabs {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+
+    .tab-btn {
+        flex: 1 1 auto;
+        justify-content: center;
+        font-size: 0.9rem;
+        padding: 0.5rem 0.8rem;
+    }
+
     .booking-form {
         grid-template-columns: 1fr;
     }
 
     .footer-container {
         grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .section-header h2 {
+        font-size: 2rem;
+    }
+
+    .container {
+        padding: 0 1rem;
     }
 }
