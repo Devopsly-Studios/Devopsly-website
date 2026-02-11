@@ -807,16 +807,104 @@ footer {
     animation-play-state: paused;
 } */
 
+/* Mobile Responsive Fixes */
 @media (max-width: 768px) {
+
+    /* Layout & Spacing */
+    .navbar {
+        padding: 1rem;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .hero-content {
+        padding: 1rem;
+    }
+
+    .hero-content h1 {
+        font-size: 3rem;
+    }
+
+    .section-header h2 {
+        font-size: 2.2rem;
+    }
+
+    .categories-section,
+    .products-section,
+    .ingredients-section,
+    .rituals-section,
+    .testimonials-section,
+    .insta-section,
+    .editorial-section,
+    .newsletter,
+    footer {
+        padding: 3rem 1.5rem;
+    }
+
+    /* Grids to Single Column */
+    .category-grid,
+    .product-grid,
+    .ingredient-grid,
+    .testimonial-slider,
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    /* Editorial Fix */
+    .editorial-section {
+        flex-direction: column;
+    }
+
+    .editorial-content {
+        padding: 3rem 1.5rem;
+    }
+
+    .editorial-content h2 {
+        font-size: 2.5rem;
+    }
+
+    /* Font Sizes */
+    .step-num {
+        font-size: 3rem;
+    }
+
+    .step-card h3 {
+        font-size: 1.2rem;
+    }
+
+    /* Newsletter */
+    .subscribe-form {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        gap: 1rem;
+    }
+
+    .subscribe-form input,
+    .subscribe-form button {
+        width: 100%;
+    }
+
+    /* Footer Alignment */
+    .footer-container {
+        text-align: center;
+    }
+
+    /* IMPORTANT: Keep slide size constant to preserve animation loop accuracy */
     .slide {
-        width: 250px;
-        height: 250px;
+        width: 300px !important;
+        height: 300px !important;
+        margin-right: 2rem !important;
     }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
 
-    .ingredient-grid {
-        grid-template-columns: repeat(2, 1fr);
+    .hero-content .subtitle {
+        font-size: 0.8rem;
     }
 }
