@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AURA | Ethereal Collection</title>
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 font-family=%22serif%22 fill=%22%23dddddd%22>A</text></svg>">
+    <!-- Fonts: Cormorant Garamond (Ethereal Serif) & Montserrat (Geometric Sans) -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@200;300;400&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="loading">
+
+    <!-- Loading Veil -->
+    <div class="veil-loader">
+        <div class="aura-glow"></div>
+        <div class="loader-text">AURA</div>
+    </div>
+
+    <!-- Background Atmosphere -->
+    <div class="atmosphere">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="noise-overlay"></div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor-light"></div>
+
+    <!-- Navigation -->
+    <nav class="nav-bar">
+        <div class="nav-links">
+            <a href="#collection" class="hover-glow">Collection</a>
+            <a href="#journal" class="hover-glow">Journal</a>
+        </div>
+        <div class="logo hover-glow">AURA</div>
+        <div class="nav-actions">
+            <a href="#" class="hover-glow search-btn">Search</a>
+            <a href="#" class="hover-glow cart-btn">Cart (0)</a>
+        </div>
+    </nav>
+
+    <main id="scroll-container">
+
+        <!-- Hero Section: Ethereal Centered -->
+        <section class="hero-section">
+            <div class="hero-visual">
+                <div class="image-mask hero-slider">
+                    <!-- Slide 1: Men's Suit -->
+                    <img src="https://images.unsplash.com/photo-1617137984095-74e4e5e3613f?q=80&w=1500&auto=format&fit=crop"
+                        alt="Men's Collection" class="parallax-img slide active" data-title="Quiet Force">
+
+                    <!-- Slide 2: Women's Dress -->
+                    <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?q=80&w=1500&auto=format&fit=crop"
+                        alt="Women's Collection" class="parallax-img slide" data-title="Ethereal Form">
+
+                    <!-- Slide 3: Streetwear Hoodie -->
+                    <img src="https://images.unsplash.com/photo-1578768079052-aa76e52ff62e?w=1500&auto=format&q=80&ixlib=rb-4.1.0"
+                        alt="Urban Aesthetic" class="parallax-img slide" data-title="Urban Soul">
+
+                    <!-- Slide 4: Denim Jacket -->
+                    <img src="https://images.unsplash.com/photo-1527016021513-b09758b777bd?w=1500&auto=format&q=80&ixlib=rb-4.1.0"
+                        alt="Denim" class="parallax-img slide" data-title="Classic Weave">
+
+                    <!-- Slide 5: Wool Coat -->
+                    <img src="https://images.unsplash.com/photo-1611196222722-2c523c861575?w=1500&auto=format&q=80&ixlib=rb-4.1.0"
+                        alt="Wool Coat" class="parallax-img slide" data-title="Winter Guard">
+
+                    <!-- Slide 6: Leather Jacket -->
+                    <img src="https://images.unsplash.com/photo-1487222477894-8943e31ef7b2?q=80&w=1500&auto=format&fit=crop"
+                        alt="Leather Jacket" class="parallax-img slide" data-title="Night Rider">
+
+                    <!-- Slide 7: Linen Shirt -->
+                    <img src="https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?q=80&w=1500&auto=format&fit=crop"
+                        alt="Linen Shirt" class="parallax-img slide" data-title="Soft Breeze">
+
+                    <!-- Slide 8: Oversized Knit -->
+                    <img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=1500&auto=format&fit=crop"
+                        alt="Knitwear" class="parallax-img slide" data-title="Comfort Zone">
+
+                    <!-- Slide 9: Utility Jacket -->
+                    <img src="https://images.unsplash.com/photo-1678746485751-4fef6bfc2e54?w=1500&auto=format&q=80&ixlib=rb-4.1.0"
+                        alt="Utility Wear" class="parallax-img slide" data-title="Utility Mode">
+
+                    <!-- Slide 10: Silk Blouse -->
+                    <img src="https://images.unsplash.com/photo-1563178406-4cdc2923acbc?q=80&w=1500&auto=format&fit=crop"
+                        alt="Silk Blouse" class="parallax-img slide" data-title="Fluid Grace">
+                </div>
+            </div>
+            <div class="hero-title-wrapper">
+                <h1 class="hero-title">
+                    <span class="line reveal-text">The</span>
+                    <span class="line reveal-text italic">Quiet</span>
+                    <span class="line reveal-text">Force</span>
+                </h1>
+            </div>
+            <div class="scroll-indicator">
+                <span>Discover</span>
+                <div class="line"></div>
+            </div>
+        </section>
+
+        <!-- Prologue / Statement -->
+        <section class="prologue-section">
+            <p class="statement-text reveal-fade">Engineered for the modern ascetic. Technical materials meeting
+                timeless
+                silhouettes. Form follows spirit.</p>
+        </section>
+
+        <!-- Featured Look: Horizontal Scroll -->
+        <section id="collection" class="lookbook-section">
+            <div class="section-header">
+                <h2>Chapter 01 <span>Nocturne</span></h2>
+            </div>
+
+            <div class="look-gallery">
+                <!-- Look 1 -->
+                <div class="look-card parallax-item">
+                    <div class="img-box">
+                        <img src="https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?q=80&w=1000&auto=format&fit=crop"
+                            alt="Look 01">
+                        <div class="look-overlay">
+                            <button class="view-btn hover-glow">View Piece</button>
+                        </div>
+                    </div>
+                    <div class="look-meta">
+                        <h3>Draped Silk Gown</h3>
+                        <span>$420</span>
+                    </div>
+                </div>
+
+                <!-- Look 2 -->
+                <div class="look-card parallax-item offset-down">
+                    <div class="img-box">
+                        <img src="https://images.unsplash.com/photo-1512353087810-25dfcd100962?q=80&w=1000&auto=format&fit=crop"
+                            alt="Look 02">
+                        <div class="look-overlay">
+                            <button class="view-btn hover-glow">View Piece</button>
+                        </div>
+                    </div>
+                    <div class="look-meta">
+                        <h3>Urban Structure Jacket</h3>
+                        <span>$320</span>
+                    </div>
+                </div>
+
+                <!-- Look 3 -->
+                <div class="look-card parallax-item">
+                    <div class="img-box">
+                        <img src="https://images.unsplash.com/photo-1617127365659-c47fa864d8bc?q=80&w=1000&auto=format&fit=crop"
+                            alt="Look 03">
+                        <div class="look-overlay">
+                            <button class="view-btn hover-glow">View Piece</button>
+                        </div>
+                    </div>
+                    <div class="look-meta">
+                        <h3>Tailored Wool Coat</h3>
+                        <span>$690</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Big Visual Break -->
+        <section class="visual-break">
+            <div class="break-img-wrapper">
+                <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=2000&auto=format&fit=crop"
+                    alt="Dark Fashion Aesthetic" class="break-img">
+            </div>
+            <div class="break-content">
+                <h2>Woven in<br>Shadow.</h2>
+                <a href="#" class="cta-link hover-glow">Discover Our Fabrics</a>
+            </div>
+        </section>
+
+        <!-- Condensed Shop Grid -->
+        <section id="shop" class="shop-grid-section">
+            <div class="grid-header">
+                <h2>Essentials</h2>
+                <div class="filters">
+                    <button class="active hover-glow">All</button>
+                    <button class="hover-glow">Outerwear</button>
+                    <button class="hover-glow">Accessories</button>
+                </div>
+            </div>
+
+            <div class="shop-items">
+                <div class="shop-item">
+                    <div class="s-img">
+                        <img src="https://images.unsplash.com/photo-1544441893-675973e31985?q=80&w=800&auto=format&fit=crop"
+                            alt="Item">
+                    </div>
+                    <div class="s-info">
+                        <h4>Oversized Denim Jacket</h4>
+                        <span>$240</span>
+                    </div>
+                </div>
+                <div class="shop-item">
+                    <div class="s-img">
+                        <img src="https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?q=80&w=800&auto=format&fit=crop"
+                            alt="Item">
+                    </div>
+                    <div class="s-info">
+                        <h4>Tech Cargo Pant</h4>
+                        <span>$185</span>
+                    </div>
+                </div>
+                <div class="shop-item">
+                    <div class="s-img">
+                        <img src="https://images.unsplash.com/photo-1503342394128-c104d54dba01?q=80&w=800&auto=format&fit=crop"
+                            alt="Item">
+                    </div>
+                    <div class="s-info">
+                        <h4>Ribbed Tank Top</h4>
+                        <span>$65</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Atelier / Philosophy Section -->
+        <section class="atelier-section">
+            <div class="atelier-visual parallax-item">
+                <img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?q=80&w=1200&auto=format&fit=crop"
+                    alt="Craftsmanship">
+            </div>
+            <div class="atelier-content">
+                <span class="eyebrow">The Philosophy</span>
+                <h2>Silent Design</h2>
+                <p>We believe in the power of understatement. Our garments are constructed to be felt, not just seen.
+                    Every stitch is an intention; every silhouette is a whisper.</p>
+                <a href="#" class="text-link hover-glow">Explore The Studio</a>
+            </div>
+        </section>
+
+        <!-- Journal / Editorial Section -->
+        <section id="journal" class="journal-section">
+            <div class="section-header">
+                <h2>The Journal</h2>
+                <a href="#" class="view-all hover-glow">View All Stories</a>
+            </div>
+            <div class="journal-grid">
+                <article class="journal-card parallax-item">
+                    <div class="j-img">
+                        <img src="https://images.unsplash.com/photo-1470309864661-68328b2cd0a5?q=80&w=800&auto=format&fit=crop"
+                            alt="Editorial 1">
+                    </div>
+                    <div class="j-meta">
+                        <span class="date">Oct 12, 2026</span>
+                        <h3>The Art of Layering</h3>
+                        <a href="#" class="read-more hover-glow">Read Story</a>
+                    </div>
+                </article>
+                <article class="journal-card parallax-item">
+                    <div class="j-img">
+                        <img src="https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?q=80&w=800&auto=format&fit=crop"
+                            alt="Editorial 2">
+                    </div>
+                    <div class="j-meta">
+                        <span class="date">Sep 28, 2026</span>
+                        <h3>Sustainable Fibers</h3>
+                        <a href="#" class="read-more hover-glow">Read Story</a>
+                    </div>
+                </article>
+                <article class="journal-card parallax-item">
+                    <div class="j-img">
+                        <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=800&auto=format&fit=crop"
+                            alt="Editorial 3">
+                    </div>
+                    <div class="j-meta">
+                        <span class="date">Sep 15, 2026</span>
+                        <h3>Monochrome Life</h3>
+                        <a href="#" class="read-more hover-glow">Read Story</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-content">
+                <div class="f-top">
+                    <h2>Join the Inner Circle</h2>
+                    <div class="input-line">
+                        <input type="email" placeholder="Email Address">
+                        <button class="hover-glow">Subscribe</button>
+                    </div>
+                </div>
+                <div class="f-mid">
+                    <div class="col">
+                        <a href="#" class="hover-glow">Shop</a>
+                        <a href="#" class="hover-glow">About</a>
+                        <a href="#" class="hover-glow">Journal</a>
+                    </div>
+                    <div class="col">
+                        <a href="#" class="hover-glow">Instagram</a>
+                        <a href="#" class="hover-glow">Pinterest</a>
+                        <a href="#" class="hover-glow">Twitter</a>
+                    </div>
+                    <div class="col right-align">
+                        <span>AURA STUDIOS</span>
+                        <span>EST. 2026</span>
+                    </div>
+                </div>
+                <div class="f-bot">
+                    <span>Designed by Devopsly</span>
+                </div>
+            </div>
+        </footer>
+
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
