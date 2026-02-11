@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUMIÈRE | Pure Beauty & Skincare</title>
+
+    <!-- Favicon (Simple Drop/Leaf SVG) -->
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2240%22 fill=%22none%22 stroke=%22%23333%22 stroke-width=%225%22/><path d=%22M50 25 Q65 50 50 75 Q35 50 50 25 z%22 fill=%22%23333%22/></svg>">
+
+    <!-- Fonts: Playfair Display (Luxury Serif) & Lato (Clean Sans) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-left">
+            <a href="#skincare">Skincare</a>
+            <a href="#makeup">Makeup</a>
+            <a href="#haircare">Haircare</a>
+        </div>
+        <div class="nav-center">
+            <a href="#" class="logo">LUMIÈRE</a>
+        </div>
+        <div class="nav-right">
+            <a href="#">Journal</a>
+            <a href="#">Account</a>
+            <a href="#">Cart (0)</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-slider">
+            <!-- Slide 1: Radiance -->
+            <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?q=80&w=2000&auto=format&fit=crop"
+                alt="Radiance" class="slide active" data-title="Radiance Redefined">
+
+            <!-- Slide 2: Purity (Water/Texture) -->
+            <img src="https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?q=80&w=2000&auto=format&fit=crop"
+                alt="Purity" class="slide" data-title="Pure Elements">
+
+            <!-- Slide 3: Nature (Botanical) -->
+            <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=2000&auto=format&fit=crop"
+                alt="Nature" class="slide" data-title="Natural Essence">
+
+            <!-- Slide 4: Glow (Model) -->
+            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=2000&auto=format&fit=crop"
+                alt="Glow" class="slide" data-title="Inner Glow">
+
+            <!-- Slide 5: Spa Rituals (Original) -->
+            <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?q=80&w=2000&auto=format&fit=crop"
+                alt="Spa" class="slide" data-title="Timeless Beauty">
+
+            <!-- Slide 6: Silky Texture -->
+            <img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?q=80&w=2000&auto=format&fit=crop"
+                alt="Texture" class="slide" data-title="Silky Touch">
+
+            <!-- Slide 7: Pure Form -->
+            <img src="https://images.unsplash.com/photo-1629198688000-71f23e745b6e?q=80&w=2000&auto=format&fit=crop"
+                alt="Minimal" class="slide" data-title="Pure Form">
+        </div>
+
+        <div class="hero-content">
+            <span class="subtitle">The Essence of Purity</span>
+            <h1>
+                <span class="line">Radiance</span><br>
+                <span class="line">Redefined</span>
+            </h1>
+            <a href="#shop" class="btn btn-outline">Discover The Collection</a>
+        </div>
+    </header>
+
+    <!-- Marquee / Text Strip -->
+    <div class="marquee-strip">
+        <div class="marquee-content">
+            <span>Clean Formulas</span> • <span>Cruelty Free</span> • <span>Sustainable Packaging</span> •
+            <span>Dermatologist Tested</span> • <span>Vegan Ingredients</span> •
+            <span>Clean Formulas</span> • <span>Cruelty Free</span> • <span>Sustainable Packaging</span> •
+            <span>Dermatologist Tested</span> • <span>Vegan Ingredients</span> •
+        </div>
+    </div>
+
+    <!-- Featured Categories -->
+    <section id="shop" class="categories-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Curated Rituals</h2>
+                <p>Essentials for your daily transformation.</p>
+            </div>
+            <div class="category-grid">
+                <!-- Skincare -->
+                <div class="cat-card">
+                    <div class="cat-img">
+                        <img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?q=80&w=1000&auto=format&fit=crop"
+                            alt="Skincare">
+                    </div>
+                    <div class="cat-info">
+                        <h3>Skincare</h3>
+                        <a href="#skincare" class="link-arrow">Shop Skincare</a>
+                    </div>
+                </div>
+                <!-- Makeup -->
+                <div class="cat-card">
+                    <div class="cat-img">
+                        <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?q=80&w=1000&auto=format&fit=crop"
+                            alt="Makeup">
+                    </div>
+                    <div class="cat-info">
+                        <h3>Makeup</h3>
+                        <a href="#makeup" class="link-arrow">Shop Makeup</a>
+                    </div>
+                </div>
+                <!-- Haircare -->
+                <div class="cat-card">
+                    <div class="cat-img">
+                        <img src="https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?q=80&w=1000&auto=format&fit=crop"
+                            alt="Haircare">
+                    </div>
+                    <div class="cat-info">
+                        <h3>Haircare</h3>
+                        <a href="#haircare" class="link-arrow">Shop Haircare</a>
+                    </div>
+                </div>
+                <!-- Grooming -->
+                <div class="cat-card">
+                    <div class="cat-img">
+                        <img src="https://images.unsplash.com/photo-1621607512214-68297480165e?q=80&w=1000&auto=format&fit=crop"
+                            alt="Grooming">
+                    </div>
+                    <div class="cat-info">
+                        <h3>Grooming</h3>
+                        <a href="#grooming" class="link-arrow">Shop Grooming</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Best Sellers Slider / Grid -->
+    <section class="products-section">
+        <div class="container">
+            <div class="section-header split-header">
+                <h2>The Icons</h2>
+                <a href="#" class="view-all">View All Products</a>
+            </div>
+            <div class="product-grid">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <div class="p-img">
+                        <img src="https://images.unsplash.com/photo-1629198688000-71f23e745b6e?q=80&w=800&auto=format&fit=crop"
+                            alt="Serum">
+                        <span class="tag">Best Seller</span>
+                    </div>
+                    <div class="p-details">
+                        <h4>Midnight Recovery Serum</h4>
+                        <span class="price">$85.00</span>
+                    </div>
+                </div>
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <div class="p-img">
+                        <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=800&auto=format&fit=crop"
+                            alt="Moisturizer">
+                    </div>
+                    <div class="p-details">
+                        <h4>Hydra-Boost Cream</h4>
+                        <span class="price">$64.00</span>
+                    </div>
+                </div>
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <div class="p-img">
+                        <img src="https://images.unsplash.com/photo-1631729371254-42c2892f0e6e?q=80&w=800&auto=format&fit=crop"
+                            alt="Foundation">
+                    </div>
+                    <div class="p-details">
+                        <h4>Velvet Skin Foundation</h4>
+                        <span class="price">$52.00</span>
+                    </div>
+                </div>
+                <!-- Product 4 -->
+                <div class="product-card">
+                    <div class="p-img">
+                        <img src="https://images.unsplash.com/photo-1586495777744-4413f21062fa?q=80&w=800&auto=format&fit=crop"
+                            alt="Lipstick">
+                        <span class="tag">New</span>
+                    </div>
+                    <div class="p-details">
+                        <h4>Matte Rouge - Classic</h4>
+                        <span class="price">$38.00</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Ritual Section -->
+    <section class="rituals-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>The Ritual</h2>
+                <p>Simple steps to a timeless glow.</p>
+            </div>
+            <div class="ritual-steps">
+                <div class="step-card">
+                    <span class="step-num">01</span>
+                    <h3>Cleanse</h3>
+                    <p>Purify your skin without stripping natural oils using our gentle foam cleanser.</p>
+                </div>
+                <div class="step-card">
+                    <span class="step-num">02</span>
+                    <h3>Treat</h3>
+                    <p>Target specific concerns with our concentrated, active-rich serums.</p>
+                </div>
+                <div class="step-card">
+                    <span class="step-num">03</span>
+                    <h3>Hydrate</h3>
+                    <p>Lock in moisture and protect your barrier with our nutrient-dense creams.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Editorial / Philosophy -->
+    <section class="editorial-section">
+        <div class="editorial-img">
+            <img src="https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?q=80&w=1500&auto=format&fit=crop"
+                alt="Texture">
+        </div>
+        <div class="editorial-content">
+            <h2>Science Meets <br><i>Nature</i></h2>
+            <p>We blend potent botanical actives with clinical-grade ingredients to create formulas that truly transform
+                your skin. No fillers, no compromises.</p>
+            <ul class="benefit-list">
+                <li><i class="fa-solid fa-check"></i> Sustainable Sourcing</li>
+                <li><i class="fa-solid fa-check"></i> Carbon Neutral Shipping</li>
+                <li><i class="fa-solid fa-check"></i> 100% Recyclable</li>
+            </ul>
+            <a href="#" class="btn btn-black">Our Philosophy</a>
+        </div>
+    </section>
+
+    <!-- Testimonials / Social Proof -->
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="testimonial-slider">
+                <div class="testimonial-card">
+                    <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+                    <p>"LUMIÈRE has completely transformed not just my skin, but my morning routine. It feels like a spa
+                        moment every day."</p>
+                    <div class="author">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=150&auto=format&fit=crop"
+                            alt="User">
+                        <span>Elena R.</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+                    <p>"Finally, a clean beauty brand that actually delivers clinical results. The Midnight Serum is
+                        absolute magic."</p>
+                    <div class="author">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=150&auto=format&fit=crop"
+                            alt="User">
+                        <span>Sarah K.</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+                    <p>"The packaging is stunning, but what's inside is even better. My sensitive skin has never been
+                        happier."</p>
+                    <div class="author">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150&auto=format&fit=crop"
+                            alt="User">
+                        <span>James L.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ingredients Spotlight -->
+    <section class="ingredients-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Powered by Nature</h2>
+                <p>Potent actives for visible results.</p>
+            </div>
+            <div class="ingredient-grid">
+                <div class="ing-card">
+                    <img src="https://images.unsplash.com/photo-1570295835271-04c05b4ed943?w=600&auto=format&fit=crop&q=60"
+                        alt="Aloe Vera">
+                    <h3>Aloe Vera</h3>
+                    <p>Soothes and hydrates sensitive skin instantly.</p>
+                </div>
+                <div class="ing-card">
+                    <img src="https://images.unsplash.com/photo-1604451974845-61bc52844443?w=600&auto=format&fit=crop&q=60"
+                        alt="Vitamin C">
+                    <h3>Vitamin C</h3>
+                    <p>Brightens complexion and protects against free radicals.</p>
+                </div>
+                <div class="ing-card">
+                    <img src="https://images.unsplash.com/photo-1663782463991-17b45e3bca07?w=600&auto=format&fit=crop&q=60"
+                        alt="Hyaluronic Acid">
+                    <h3>Hyaluronic Acid</h3>
+                    <p>Plumps skin by holding 1000x its weight in water.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Insta-Shop -->
+    <section class="insta-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>@LumiereBeauty</h2>
+                <p>Join our community of glow-getters.</p>
+            </div>
+            <div class="insta-slider">
+                <div class="insta-track">
+                    <!-- Set 1: Originals -->
+                    <div class="slide">
+                        <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=600&auto=format&fit=crop"
+                            alt="Skincare">
+                    </div>
+                    <div class="slide">
+                        <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=600&auto=format&fit=crop&q=60"
+                            alt="Makeup">
+                    </div>
+                    <div class="slide">
+                        <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=600&auto=format&fit=crop&q=60"
+                            alt="Haircare">
+                    </div>
+                    <div class="slide">
+                        <img src="https://images.unsplash.com/photo-1659355751209-2e6c7c8091fe?w=600&auto=format&fit=crop&q=60"
+                            alt="Grooming">
+                    </div>
+                    <div class="slide">
+                        <img src="https://images.unsplash.com/photo-1618331835717-801e976710b2?q=80&w=600&auto=format&fit=crop"
+                            alt="Texture">
+                    </div>
+                    <div class="slide">
+                        <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?q=80&w=600&auto=format&fit=crop"
+                            alt="Beauty">
+                    </div>
+
+                    <!-- Set 2: Duplicates (Must match Set 1 exactly for seamless loop) -->
+                    <div class="slide">
+                        <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=600&auto=format&fit=crop"
+                            alt="Skincare">
+                    </div>
+                    <div class="slide">
+                        <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=600&auto=format&fit=crop&q=60"
+                            alt="Makeup">
+                    </div>
+                    <div class="slide">
+                        <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=600&auto=format&fit=crop&q=60"
+                            alt="Haircare">
+                    </div>
+                    <div class="slide">
+                        <img src="https://images.unsplash.com/photo-1659355751209-2e6c7c8091fe?w=600&auto=format&fit=crop&q=60"
+                            alt="Grooming">
+                    </div>
+                    <div class="slide">
+                        <img src="https://images.unsplash.com/photo-1618331835717-801e976710b2?q=80&w=600&auto=format&fit=crop"
+                            alt="Texture">
+                    </div>
+                    <div class="slide">
+                        <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?q=80&w=600&auto=format&fit=crop"
+                            alt="Beauty">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="newsletter-content">
+            <h2>Join the Inner Circle</h2>
+            <p>Receive exclusive offers, skincare tips, and early access to new launches.</p>
+            <form class="subscribe-form">
+                <input type="email" placeholder="Your email address">
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="f-col branding">
+                <a href="#" class="logo-footer">LUMIÈRE</a>
+                <p>Redefining beauty standards since 2026.</p>
+            </div>
+            <div class="f-col">
+                <h4>Shop</h4>
+                <a href="#">Skincare</a>
+                <a href="#">Makeup</a>
+                <a href="#">Haircare</a>
+                <a href="#">Sets</a>
+            </div>
+            <div class="f-col">
+                <h4>Help</h4>
+                <a href="#">Shipping</a>
+                <a href="#">Returns</a>
+                <a href="#">FAQ</a>
+                <a href="#">Contact</a>
+            </div>
+            <div class="f-col">
+                <h4>Social</h4>
+                <a href="#">Instagram</a>
+                <a href="#">TikTok</a>
+                <a href="#">Pinterest</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Lumière Cosmetics. Designed by Devopsly.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
