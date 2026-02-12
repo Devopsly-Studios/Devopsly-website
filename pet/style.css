@@ -877,3 +877,30 @@ footer {
         transform: translateY(-15px);
     }
 }
+
+/* Mobile Layout Fixes */
+@media (max-width: 600px) {
+    .trending-grid {
+        grid-template-columns: 1fr;
+        /* Stack products vertically */
+        gap: 2rem;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+        /* Stack gallery images */
+    }
+
+    .p-img-container {
+        height: auto;
+        /* Allow height to adjust naturally */
+        aspect-ratio: 1 / 1;
+        /* Keep square-ish aspect ratio */
+        max-height: 350px;
+    }
+
+    .section-title {
+        font-size: 2.5rem;
+        /* Smaller title on mobile */
+    }
+}
