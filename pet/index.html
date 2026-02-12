@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PawPal | The Ultimate Pet Superstore</title>
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <i class="fa-solid fa-paw" style="color: var(--secondary)"></i> Paw<span>Pal</span>.
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#shop">Shop</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#blog">Blog</a></li>
+            </ul>
+            <div class="nav-icons">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <i class="fa-regular fa-heart"></i>
+                <i class="fa-solid fa-bag-shopping"></i>
+                <div class="mobile-toggle">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="home" class="hero">
+        <div class="blob-bg blob-1"></div>
+        <div class="blob-bg blob-2"></div>
+        <div class="blob-bg blob-3"></div>
+
+        <div class="container">
+            <div class="hero-row">
+                <div class="hero-text">
+                    <h1>Everything Your <br>Pet Needs for a <br><span class="highlight">Happy Life.</span></h1>
+                    <p>From organic nutrition to durable toys and cozy beds. We provide premium essentials for cats,
+                        dogs, and every furry friend in between.</p>
+
+                    <div class="cta-group">
+                        <a href="#shop" class="btn btn-primary">Shop Now <i class="fa-solid fa-arrow-right"></i></a>
+                        <a href="#services" class="btn btn-outline" style="margin-left: 1rem">Our Services</a>
+                    </div>
+
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <h3>50k+</h3>
+                            <p>Happy Pets</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>200+</h3>
+                            <p>Premium Brands</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>24/7</h3>
+                            <p>Vet Support</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-image-wrapper">
+                    <!-- Floating Cards -->
+                    <div class="floating-card float-1">
+                        <div class="float-icon"><i class="fa-solid fa-truck-fast"></i></div>
+                        <div>
+                            <strong>Fast Delivery</strong><br>
+                            <small>Within 24 Hours</small>
+                        </div>
+                    </div>
+
+                    <div class="floating-card float-2">
+                        <div class="float-icon"><i class="fa-solid fa-shield-dog"></i></div>
+                        <div>
+                            <strong>Vet Approved</strong><br>
+                            <small>100% Safe</small>
+                        </div>
+                    </div>
+
+                    <!-- Main Image (High Quality Unsplash) -->
+                    <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?q=80&w=1000&auto=format&fit=crop"
+                        alt="Happy Dog Running" class="hero-main-img">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Features Strip -->
+    <div class="features-strip">
+        <div class="container features-grid">
+            <div class="feature-item">
+                <i class="fa-solid fa-leaf"></i>
+                <h4>100% Organic</h4>
+                <p>Natural ingredients only</p>
+            </div>
+            <div class="feature-item">
+                <i class="fa-solid fa-hand-holding-heart"></i>
+                <h4>Cruelty Free</h4>
+                <p>Ethically sourced products</p>
+            </div>
+            <div class="feature-item">
+                <i class="fa-solid fa-truck"></i>
+                <h4>Free Shipping</h4>
+                <p>On orders over $50</p>
+            </div>
+            <div class="feature-item">
+                <i class="fa-solid fa-award"></i>
+                <h4>Quality Guarantee</h4>
+                <p>30-day money back</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Shop by Category -->
+    <section id="shop" class="section categories-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Shop by Category</h2>
+                <p class="section-subtitle">Find exactly what you're looking for</p>
+            </div>
+
+            <div class="category-circles">
+                <!-- Dog -->
+                <div class="cat-circle">
+                    <div class="cat-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=500&auto=format&fit=crop&q=60"
+                            alt="Dogs">
+                    </div>
+                    <h3>For Dogs</h3>
+                </div>
+                <!-- Cat -->
+                <div class="cat-circle">
+                    <div class="cat-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=500&auto=format&fit=crop&q=60"
+                            alt="Cats">
+                    </div>
+                    <h3>For Cats</h3>
+                </div>
+                <!-- Food -->
+                <div class="cat-circle">
+                    <div class="cat-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1589924691195-41432c84c161?w=500&auto=format&fit=crop&q=60"
+                            alt="Food">
+                    </div>
+                    <h3>Nutrition</h3>
+                </div>
+                <!-- Toys -->
+                <div class="cat-circle">
+                    <div class="cat-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1576201836106-db1758fd1c97?w=500&auto=format&fit=crop&q=60"
+                            alt="Toys">
+                    </div>
+                    <h3>Toys</h3>
+                </div>
+                <!-- Accessories -->
+                <div class="cat-circle">
+                    <div class="cat-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=500&auto=format&fit=crop&q=60"
+                            alt="Accessories">
+                    </div>
+                    <h3>Essentials</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trending Products -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Trending Now</h2>
+                <p class="section-subtitle">Our best-selling picks this week</p>
+            </div>
+
+            <div class="trending-grid">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <span class="badge sale">Sale</span>
+                    <div class="p-img-container">
+                        <img src="https://img.pikbest.com/png-images/20250101/organic-crunchy-kibble-for-healthy-dog-feed_11325808.png!w700wp"
+                            alt="Premium Salmon Kibble">
+                    </div>
+                    <div class="p-details">
+                        <h3>Premium Salmon Kibble</h3>
+                        <p style="color:var(--text-light); font-size: 0.9rem">Organic & Grain Free</p>
+                        <div class="p-meta">
+                            <span class="price">$45.00</span>
+                            <button class="btn-add"><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <span class="badge new">New</span>
+                    <div class="p-img-container">
+                        <img src="https://m.media-amazon.com/images/I/51fCD+g+piL._AC_UL480_FMwebp_QL65_.jpg"
+                            alt="Interactive Laser Toy">
+                    </div>
+                    <div class="p-details">
+                        <h3>Interactive Laser Toy</h3>
+                        <p style="color:var(--text-light); font-size: 0.9rem">Smart Auto-Play Mode</p>
+                        <div class="p-meta">
+                            <span class="price">$29.99</span>
+                            <button class="btn-add"><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <div class="p-img-container">
+                        <img src="https://m.media-amazon.com/images/I/81+q7cajkaL._AC_UL480_FMwebp_QL65_.jpg"
+                            alt="Leather Leash Set">
+                    </div>
+                    <div class="p-details">
+                        <h3>Leather Leash Set</h3>
+                        <p style="color:var(--text-light); font-size: 0.9rem">Durable & Stylish</p>
+                        <div class="p-meta">
+                            <span class="price">$35.00</span>
+                            <button class="btn-add"><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="product-card">
+                    <div class="p-img-container">
+                        <img src="https://m.media-amazon.com/images/I/71oamav3ACL._AC_UL480_FMwebp_QL65_.jpg"
+                            alt="Orthopedic Pet Bed">
+                    </div>
+                    <div class="p-details">
+                        <h3>Orthopedic Pet Bed</h3>
+                        <p style="color:var(--text-light); font-size: 0.9rem">Memory Foam Comfort</p>
+                        <div class="p-meta">
+                            <span class="price">$89.00</span>
+                            <button class="btn-add"><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="#" class="btn btn-outline">View All Products</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Big Promo Banner -->
+    <div class="container">
+        <section class="big-promo">
+            <div class="promo-content">
+                <h2>Healthy Food,<br>Happy Life</h2>
+                <p>Switch to our vet-recommended organic diet plan today. Get a personalized nutrition plan for your pet
+                    at no extra cost.</p>
+                <div class="cta-group">
+                    <a href="#" class="btn btn-primary">Start Diet Plan</a>
+                    <a href="#" class="btn btn-outline" style="border-color: rgba(255,255,255,0.3); color: white;">Learn
+                        More</a>
+                </div>
+            </div>
+            <div class="promo-img-side">
+                <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=1000&auto=format&fit=crop&q=60"
+                    alt="Dog Eating">
+            </div>
+        </section>
+    </div>
+
+    <!-- Gallery Section (Masonry) -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Wall of Fame</h2>
+                <p class="section-subtitle">Tag @PawPal to be featured!</p>
+            </div>
+
+            <div class="gallery-grid">
+                <!-- Item 1 (Wide) -->
+                <div class="gallery-item g-wide">
+                    <img src="https://images.unsplash.com/photo-1450778869180-41d0601e046e?w=800&auto=format&fit=crop&q=60"
+                        alt="Border Collie">
+                    <div class="g-overlay"><i class="fa-brands fa-instagram"></i></div>
+                </div>
+                <!-- Item 2 -->
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?w=800&auto=format&fit=crop&q=60"
+                        alt="Cute Puppy">
+                    <div class="g-overlay"><i class="fa-brands fa-instagram"></i></div>
+                </div>
+                <!-- Item 3 (Tall) -->
+                <div class="gallery-item g-tall">
+                    <img src="https://images.unsplash.com/photo-1533738363-b7f9aef128ce?w=800&auto=format&fit=crop&q=60"
+                        alt="Ginger Cat">
+                    <div class="g-overlay"><i class="fa-brands fa-instagram"></i></div>
+                </div>
+                <!-- Item 4 -->
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1510771463146-e89e6e86560e?w=800&auto=format&fit=crop&q=60"
+                        alt="Dog looking up">
+                    <div class="g-overlay"><i class="fa-brands fa-instagram"></i></div>
+                </div>
+                <!-- Item 5 -->
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1543852786-1cf6624b9987?w=800&auto=format&fit=crop&q=60"
+                        alt="Cat in box">
+                    <div class="g-overlay"><i class="fa-brands fa-instagram"></i></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section testimonials">
+        <div class="container">
+            <div class="review-slider-wrapper">
+                <div class="review-card">
+                    <div style="font-size: 2rem; color: var(--secondary); margin-bottom: 1rem;">
+                        <i class="fa-solid fa-quote-left"></i>
+                    </div>
+                    <p class="review-text">"I've never seen my golden retriever so excited for meal time! The organic
+                        kibble mix has done wonders for his coat."</p>
+                    <div class="reviewer">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&auto=format&fit=crop&q=60"
+                            alt="Jane">
+                        <div style="text-align: left;">
+                            <strong>Jane Doe</strong>
+                            <div style="font-size: 0.8rem; color: #777">Owner of Max</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <a href="#" class="logo" style="color: white">Paw<span
+                            style="color: var(--secondary)">Pal</span>.</a>
+                    <p>Dedicated to providing the happiest, healthiest life for your pets through premium products and
+                        sustainable practices.</p>
+                    <div style="margin-top: 1.5rem; display: flex; gap: 1rem;">
+                        <a href="#"><i class="fa-brands fa-instagram fa-lg"></i></a>
+                        <a href="#"><i class="fa-brands fa-facebook fa-lg"></i></a>
+                        <a href="#"><i class="fa-brands fa-twitter fa-lg"></i></a>
+                        <a href="#"><i class="fa-brands fa-tiktok fa-lg"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Shop</h4>
+                    <ul>
+                        <li><a href="#">Dogs</a></li>
+                        <li><a href="#">Cats</a></li>
+                        <li><a href="#">Small Pets</a></li>
+                        <li><a href="#">New Arrivals</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Affiliate Program</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Stay Updated</h4>
+                    <p style="color: #a4b0be; font-size: 0.9rem;">Subscribe for exclusive deals and pet tips.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Email...">
+                        <button type="submit"><i class="fa-solid fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 PawPal Superstore. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
