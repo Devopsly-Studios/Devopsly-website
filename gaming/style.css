@@ -611,3 +611,31 @@ footer {
         display: none;
     }
 }
+
+/* Small Mobile Fixes */
+@media (max-width: 600px) {
+    .bento-grid {
+        grid-template-columns: 1fr;
+        /* Stack categories in single column */
+        gap: 15px;
+    }
+
+    .bento-content {
+        padding: 20px;
+        /* Reduce padding for more space */
+    }
+
+    .bento-title {
+        font-size: 1.5rem;
+        /* Slightly smaller title */
+    }
+
+    .hero-title {
+        font-size: 2.8rem;
+        /* Adjust hero text */
+    }
+
+    .text-h1 {
+        font-size: 2.2rem;
+    }
+}
