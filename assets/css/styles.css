@@ -1404,7 +1404,7 @@ img {
 /* ===== Footer ===== */
 .footer {
     background: #0A0F1C;
-    color: var(--white);
+    color: #ffffff;
     padding: 60px 0 30px;
 }
 
@@ -1416,7 +1416,7 @@ img {
 }
 
 .footer-brand p {
-    color: var(--gray-400);
+    color: #cfcfcf;
     margin-top: 16px;
 }
 
@@ -1454,12 +1454,12 @@ img {
 }
 
 .footer-col a {
-    color: var(--gray-400);
+    color: #cfcfcf;
     transition: var(--transition);
 }
 
 .footer-col a:hover {
-    color: var(--white);
+    color: #ffffff;
 }
 
 .footer-bottom {
@@ -1469,7 +1469,7 @@ img {
 }
 
 .footer-bottom p {
-    color: var(--gray-400);
+    color: #cfcfcf;
     font-size: 0.9rem;
 }
 
