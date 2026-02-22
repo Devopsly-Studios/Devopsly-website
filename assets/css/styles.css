@@ -1246,7 +1246,7 @@ img {
 /* ===== CTA Section ===== */
 .cta {
     padding: 80px 0;
-    background: var(--dark);
+    background: #0A0F1C;
     position: relative;
     overflow: hidden;
 }
@@ -1265,7 +1265,7 @@ img {
 .cta-content {
     position: relative;
     text-align: center;
-    color: var(--white);
+    color: #FFFFFF;
 }
 
 .cta-content h2 {
